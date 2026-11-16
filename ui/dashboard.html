@@ -1,0 +1,2220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Public Tailwind CDN & Antigravity CDN for universal rendering -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <style>
+    /* Robust Fallback & Cyber SOC Design System */
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      background-color: #090d16 !important;
+      color: #f1f5f9 !important;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.5;
+    }
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #0b1120; }
+    ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #334155; }
+    .glow-rose { box-shadow: 0 0 18px rgba(244, 63, 94, 0.3) !important; }
+    .glow-cyan { box-shadow: 0 0 18px rgba(6, 182, 212, 0.3) !important; }
+
+    /* Layout & Flexbox */
+    .flex { display: flex !important; }
+    .hidden { display: none !important; }
+    .items-center { align-items: center !important; }
+    .items-start { align-items: flex-start !important; }
+    .items-baseline { align-items: baseline !important; }
+    .justify-between { justify-content: space-between !important; }
+    .justify-center { justify-content: center !important; }
+    .justify-end { justify-content: flex-end !important; }
+    .flex-wrap { flex-wrap: wrap !important; }
+
+    /* Space Utilities */
+    .space-x-1 > * + * { margin-left: 0.25rem !important; }
+    .space-x-2 > * + * { margin-left: 0.5rem !important; }
+    .space-x-3 > * + * { margin-left: 0.75rem !important; }
+    .space-x-4 > * + * { margin-left: 1rem !important; }
+    .space-y-1\.5 > * + * { margin-top: 0.375rem !important; }
+    .space-y-2 > * + * { margin-top: 0.5rem !important; }
+    .space-y-2\.5 > * + * { margin-top: 0.625rem !important; }
+    .space-y-3 > * + * { margin-top: 0.75rem !important; }
+    .space-y-4 > * + * { margin-top: 1rem !important; }
+    .space-y-6 > * + * { margin-top: 1.5rem !important; }
+
+    /* Grid System */
+    .grid { display: grid !important; }
+    .grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)) !important; }
+    .grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+    .gap-3 { gap: 0.75rem !important; }
+    .gap-4 { gap: 1rem !important; }
+    .gap-6 { gap: 1.5rem !important; }
+
+    @media (min-width: 640px) {
+      .sm\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+      .sm\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+    }
+    @media (min-width: 768px) {
+      .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+    }
+    @media (min-width: 1024px) {
+      .lg\:flex { display: flex !important; }
+      .lg\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
+      .lg\:grid-cols-12 { grid-template-columns: repeat(12, minmax(0, 1fr)) !important; }
+      .lg\:col-span-4 { grid-column: span 4 / span 12 !important; }
+      .lg\:col-span-8 { grid-column: span 8 / span 12 !important; }
+    }
+
+    /* Container & Sizing */
+    .max-w-7xl { max-width: 80rem !important; margin-left: auto !important; margin-right: auto !important; }
+    .max-w-2xl { max-width: 42rem !important; }
+    .w-full { width: 100% !important; }
+    .w-9 { width: 2.25rem !important; height: 2.25rem !important; }
+    .w-14 { width: 3.5rem !important; height: 3.5rem !important; }
+    .w-2 { width: 0.5rem !important; height: 0.5rem !important; }
+    .w-2\.5 { width: 0.625rem !important; height: 0.625rem !important; }
+
+    /* Padding & Margins */
+    .p-2\.5 { padding: 0.625rem !important; }
+    .p-3 { padding: 0.75rem !important; }
+    .p-4 { padding: 1rem !important; }
+    .p-5 { padding: 1.25rem !important; }
+    .p-6 { padding: 1.5rem !important; }
+    .px-2 { padding-left: 0.5rem !important; padding-right: 0.5rem !important; }
+    .px-2\.5 { padding-left: 0.625rem !important; padding-right: 0.625rem !important; }
+    .px-3 { padding-left: 0.75rem !important; padding-right: 0.75rem !important; }
+    .px-4 { padding-left: 1rem !important; padding-right: 1rem !important; }
+    .px-6 { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
+    .py-0\.5 { padding-top: 0.125rem !important; padding-bottom: 0.125rem !important; }
+    .py-1 { padding-top: 0.25rem !important; padding-bottom: 0.25rem !important; }
+    .py-1\.5 { padding-top: 0.375rem !important; padding-bottom: 0.375rem !important; }
+    .py-2 { padding-top: 0.5rem !important; padding-bottom: 0.5rem !important; }
+    .py-2\.5 { padding-top: 0.625rem !important; padding-bottom: 0.625rem !important; }
+    .py-3 { padding-top: 0.75rem !important; padding-bottom: 0.75rem !important; }
+    .py-6 { padding-top: 1.5rem !important; padding-bottom: 1.5rem !important; }
+    .mt-1 { margin-top: 0.25rem !important; }
+    .mt-2 { margin-top: 0.5rem !important; }
+    .mt-3 { margin-top: 0.75rem !important; }
+    .mb-1 { margin-bottom: 0.25rem !important; }
+    .mb-2 { margin-bottom: 0.5rem !important; }
+    .mr-1\.5 { margin-right: 0.375rem !important; }
+    .mr-2 { margin-right: 0.5rem !important; }
+    .pr-1 { padding-right: 0.25rem !important; }
+    .pr-3 { padding-right: 0.75rem !important; }
+    .pb-1 { padding-bottom: 0.25rem !important; }
+    .pb-3 { padding-bottom: 0.75rem !important; }
+    .pt-3 { padding-top: 0.75rem !important; }
+
+    /* Borders & Rounded Corners */
+    .rounded { border-radius: 0.25rem !important; }
+    .rounded-lg { border-radius: 0.5rem !important; }
+    .rounded-xl { border-radius: 0.75rem !important; }
+    .rounded-full { border-radius: 9999px !important; }
+    .border { border: 1px solid #1e293b !important; }
+    .border-b { border-bottom: 1px solid #1e293b !important; }
+    .border-r { border-right: 1px solid #1e293b !important; }
+    .border-t { border-top: 1px solid #1e293b !important; }
+    .border-slate-700 { border-color: #334155 !important; }
+    .border-slate-800 { border-color: #1e293b !important; }
+    .border-cyan-800 { border-color: #155e75 !important; }
+    .border-rose-500\/30, .border-rose-500\/40 { border-color: rgba(244, 63, 94, 0.4) !important; }
+    .border-emerald-500\/30 { border-color: rgba(16, 185, 129, 0.4) !important; }
+    .border-amber-500\/30 { border-color: rgba(245, 158, 11, 0.4) !important; }
+
+    /* Backgrounds */
+    .bg-\[\#090d16\] { background-color: #090d16 !important; }
+    .bg-\[\#111728\] { background-color: #111728 !important; }
+    .bg-\[\#0d1322\]\/90 { background-color: rgba(13, 19, 34, 0.95) !important; }
+    .bg-slate-800 { background-color: #1e293b !important; }
+    .bg-slate-800\/80 { background-color: rgba(30, 41, 59, 0.8) !important; }
+    .bg-slate-900 { background-color: #0f172a !important; }
+    .bg-slate-900\/80, .bg-slate-900\/90 { background-color: rgba(15, 23, 42, 0.9) !important; }
+    .bg-slate-950 { background-color: #020617 !important; }
+    .bg-cyan-950 { background-color: #083344 !important; }
+    .bg-rose-600 { background-color: #e11d48 !important; }
+    .bg-rose-500 { background-color: #f43f5e !important; }
+    .bg-rose-500\/10, .bg-rose-500\/20 { background-color: rgba(244, 63, 94, 0.15) !important; }
+    .bg-emerald-600 { background-color: #059669 !important; }
+    .bg-emerald-400, .bg-emerald-500 { background-color: #10b981 !important; }
+    .bg-emerald-500\/10, .bg-emerald-500\/20 { background-color: rgba(16, 185, 129, 0.15) !important; }
+    .bg-amber-600 { background-color: #d97706 !important; }
+    .bg-indigo-600 { background-color: #4f46e5 !important; }
+
+    /* Typography & Text Colors */
+    .text-xs { font-size: 0.75rem !important; line-height: 1rem !important; }
+    .text-sm { font-size: 0.875rem !important; line-height: 1.25rem !important; }
+    .text-base { font-size: 1rem !important; line-height: 1.5rem !important; }
+    .text-lg { font-size: 1.125rem !important; line-height: 1.75rem !important; }
+    .text-xl { font-size: 1.25rem !important; line-height: 1.75rem !important; }
+    .text-2xl { font-size: 1.5rem !important; line-height: 2rem !important; }
+    .font-medium { font-weight: 500 !important; }
+    .font-semibold { font-weight: 600 !important; }
+    .font-bold { font-weight: 700 !important; }
+    .font-black { font-weight: 900 !important; }
+    .font-mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important; }
+    .uppercase { text-transform: uppercase !important; }
+    .tracking-wide { letter-spacing: 0.025em !important; }
+    .tracking-wider { letter-spacing: 0.05em !important; }
+    .text-white { color: #ffffff !important; }
+    .text-slate-100 { color: #f1f5f9 !important; }
+    .text-slate-200 { color: #e2e8f0 !important; }
+    .text-slate-300 { color: #cbd5e1 !important; }
+    .text-slate-400 { color: #94a3b8 !important; }
+    .text-slate-500 { color: #64748b !important; }
+    .text-rose-400 { color: #fb7185 !important; }
+    .text-cyan-300 { color: #67e8f9 !important; }
+    .text-cyan-400 { color: #22d3ee !important; }
+    .text-emerald-400 { color: #34d399 !important; }
+    .text-amber-400 { color: #fbbf24 !important; }
+    .text-indigo-400 { color: #818cf8 !important; }
+
+    /* Interactive Buttons & States */
+    button { cursor: pointer; border: none; outline: none; }
+    .cursor-pointer { cursor: pointer !important; }
+    .transition { transition-property: color, background-color, border-color; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms; }
+    .hover\:bg-slate-700:hover { background-color: #334155 !important; }
+    .hover\:bg-rose-500:hover { background-color: #f43f5e !important; }
+    .hover\:bg-amber-500:hover { background-color: #f59e0b !important; }
+    .hover\:bg-indigo-500:hover { background-color: #6366f1 !important; }
+    .hover\:bg-emerald-500:hover { background-color: #10b981 !important; }
+
+    /* Modal & Overlays */
+    .fixed { position: fixed !important; }
+    .sticky { position: sticky !important; }
+    .top-0 { top: 0 !important; }
+    .inset-0 { top: 0 !important; right: 0 !important; bottom: 0 !important; left: 0 !important; }
+    .bottom-5 { bottom: 1.25rem !important; }
+    .right-5 { right: 1.25rem !important; }
+    .z-50 { z-index: 50 !important; }
+    .bg-black\/80 { background-color: rgba(0, 0, 0, 0.85) !important; }
+    .overflow-y-auto { overflow-y: auto !important; }
+    .overflow-x-auto { overflow-x: auto !important; }
+    .max-h-\[620px\] { max-height: 620px !important; }
+    .max-h-\[380px\] { max-height: 380px !important; }
+    .max-h-48 { max-height: 12rem !important; }
+
+    /* Code Viewer & Syntax Highlighting */
+    .token-keyword { color: #f472b6 !important; font-weight: 600; }
+    .token-function { color: #67e8f9 !important; font-weight: 600; }
+    .token-string { color: #a7f3d0 !important; }
+    .token-comment { color: #64748b !important; font-style: italic; }
+    .token-number { color: #fde047 !important; }
+    .token-class { color: #c084fc !important; font-weight: 600; }
+    .token-decorator { color: #fb923c !important; }
+    .token-builtin { color: #38bdf8 !important; }
+    .token-operator { color: #94a3b8 !important; }
+    .code-line-highlight { background-color: rgba(6, 182, 212, 0.2) !important; display: block; }
+    .toggle-bar-btn { transition: all 0.2s ease; }
+    .toggle-bar-btn.active { background-color: #0891b2 !important; color: #ffffff !important; border-color: #22d3ee !important; box-shadow: 0 0 12px rgba(6, 182, 212, 0.4); }
+    .toggle-bar-btn:not(.active) { background-color: #0f172a !important; color: #94a3b8 !important; border-color: #1e293b !important; }
+    .toggle-bar-btn:not(.active):hover { color: #ffffff !important; border-color: #334155 !important; }
+  </style>
+</head>
+<body class="bg-[#090d16] text-slate-100 font-sans antialiased min-h-screen">
+
+  <!-- Top Navigation & SOC Status Bar -->
+  <header class="border-b border-slate-800 bg-[#0d1322]/90 sticky top-0 z-50 backdrop-blur-md px-6 py-3">
+    <div class="flex flex-wrap items-center justify-between gap-4">
+      <div class="flex items-center space-x-3">
+        <div class="w-9 h-9 rounded-lg bg-gradient-to-tr from-cyan-600 to-indigo-600 flex items-center justify-center font-bold text-white shadow-lg">
+          MB
+        </div>
+        <div>
+          <div class="flex items-center space-x-2">
+            <span class="font-bold text-slate-100 tracking-wide">MERIDIAN BANK & TRUST</span>
+            <span class="text-xs px-2 py-0.5 rounded bg-cyan-950 text-cyan-400 border border-cyan-800 font-mono">FIN-SOC v4.2</span>
+          </div>
+          <p class="text-xs text-slate-400">Autonomous Insider Threat Defense • UEBA + CERT + Deep Learning + Agentic AI</p>
+        </div>
+      </div>
+
+      <!-- Regulatory Compliance Status Badges -->
+      <div class="hidden xl:flex items-center space-x-2 text-xs font-mono">
+        <span class="px-2.5 py-1 rounded bg-slate-800/80 border border-slate-700 text-emerald-400 flex items-center">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 mr-1.5 animate-pulse"></span>GLBA 501(b)
+        </span>
+        <span class="px-2.5 py-1 rounded bg-slate-800/80 border border-slate-700 text-cyan-400">PCI-DSS 10.2</span>
+        <span class="px-2.5 py-1 rounded bg-slate-800/80 border border-slate-700 text-indigo-400">SOX 404</span>
+        <span class="px-2.5 py-1 rounded bg-slate-800/80 border border-slate-700 text-amber-400">SWIFT CSP</span>
+      </div>
+
+      <!-- View Switcher & Live Controls -->
+      <div class="flex items-center space-x-2.5">
+        <!-- View Mode Switcher -->
+        <div class="flex items-center bg-slate-900 border border-slate-700 rounded-lg p-0.5 text-xs font-mono">
+          <button id="viewBtnDashboard" onclick="switchView('dashboard')" class="px-2.5 py-1 rounded bg-cyan-600 text-white font-semibold flex items-center space-x-1 transition">
+            <span>📊 Alerts</span>
+          </button>
+          <button id="viewBtnCode" onclick="switchView('code')" class="px-2.5 py-1 rounded text-slate-400 hover:text-white font-semibold flex items-center space-x-1 transition">
+            <span>💻 Code</span>
+          </button>
+          <button id="viewBtnSplit" onclick="switchView('split')" class="px-2.5 py-1 rounded text-slate-400 hover:text-white font-semibold flex items-center space-x-1 transition">
+            <span>◫ Split</span>
+          </button>
+        </div>
+
+        <!-- Quick Toggle Code Bar Button -->
+        <button onclick="toggleCodePanel()" id="quickToggleCodeBtn" class="px-3 py-1.5 bg-gradient-to-r from-cyan-900 to-indigo-900 hover:from-cyan-800 hover:to-indigo-800 border border-cyan-500/50 text-cyan-200 rounded text-xs font-bold transition flex items-center space-x-1.5 shadow-md">
+          <span>⚡ Toggle Code Bar</span>
+          <span id="codeToggleBadge" class="px-1.5 py-0.2 rounded bg-cyan-500/20 text-cyan-300 text-[10px] font-mono">ON</span>
+        </button>
+
+        <!-- Live SOC Threat Alert Simulator Button -->
+        <button onclick="triggerLiveAlertModal(0)" id="liveAlertBtn" class="px-3 py-1.5 bg-gradient-to-r from-rose-600 via-red-600 to-rose-700 hover:from-rose-500 hover:to-red-500 border border-rose-400 text-white rounded text-xs font-bold transition flex items-center space-x-1.5 shadow-lg shadow-rose-900/60 animate-pulse">
+          <span class="w-2 h-2 rounded-full bg-white animate-ping"></span>
+          <span>🚨 Live SOC Alert</span>
+          <span class="px-1.5 py-0.2 rounded bg-white/20 text-white text-[10px] font-mono">P1</span>
+        </button>
+
+        <button onclick="showDatasetModal()" class="px-3 py-1.5 bg-cyan-950 hover:bg-cyan-900 border border-cyan-700 text-cyan-300 rounded text-xs font-semibold transition flex items-center space-x-1">
+          <span>📁 CERT Logs</span>
+        </button>
+        <button onclick="refreshData()" class="px-2.5 py-1.5 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded text-xs font-semibold text-slate-200 transition">
+          ↻ Re-run
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 py-6 space-y-6">
+
+    <!-- KPI Metric Cards Row -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="bg-[#111728] border border-slate-800 rounded-xl p-4 shadow-sm relative overflow-hidden">
+        <div class="text-xs font-semibold uppercase text-slate-400 tracking-wider">Identities Monitored</div>
+        <div class="text-2xl font-bold text-white mt-1 flex items-baseline justify-between">
+          <span>25 Accounts</span>
+          <span class="text-xs text-emerald-400 font-mono">100% Coverage</span>
+        </div>
+        <div class="text-xs text-slate-500 mt-1">5 Critical Units (Retail, Trading, IT, Wealth, Legal)</div>
+        <div class="absolute right-3 top-3 text-slate-700 text-2xl font-mono">👥</div>
+      </div>
+
+      <div class="bg-[#111728] border border-slate-800 rounded-xl p-4 shadow-sm relative overflow-hidden">
+        <div class="text-xs font-semibold uppercase text-slate-400 tracking-wider">CERT Scenario Recall</div>
+        <div class="text-2xl font-bold text-rose-400 mt-1 flex items-baseline justify-between">
+          <span>4 / 4 (100%)</span>
+          <span class="text-xs text-rose-400 font-mono">0 False Negatives</span>
+        </div>
+        <div class="text-xs text-slate-500 mt-1">Multi-modal ground-truth CERT insider attacks</div>
+        <div class="absolute right-3 top-3 text-slate-700 text-2xl font-mono">🎯</div>
+      </div>
+
+      <div class="bg-[#111728] border border-slate-800 rounded-xl p-4 shadow-sm relative overflow-hidden">
+        <div class="text-xs font-semibold uppercase text-slate-400 tracking-wider">Deep Learning Sensor</div>
+        <div class="text-2xl font-bold text-cyan-400 mt-1 flex items-baseline justify-between">
+          <span>Sequence AE</span>
+          <span class="text-xs text-cyan-400 font-mono">Loss 0.034</span>
+        </div>
+        <div class="text-xs text-slate-500 mt-1">Bi-LSTM / Deep Temporal Bottleneck Engine</div>
+        <div class="absolute right-3 top-3 text-slate-700 text-2xl font-mono">🧠</div>
+      </div>
+
+      <div class="bg-[#111728] border border-slate-800 rounded-xl p-4 shadow-sm relative overflow-hidden">
+        <div class="text-xs font-semibold uppercase text-slate-400 tracking-wider">Agentic AI Containment</div>
+        <div class="text-2xl font-bold text-emerald-400 mt-1 flex items-baseline justify-between">
+          <span>142 ms MTTD</span>
+          <span class="text-xs text-emerald-400 font-mono">Zero-Trust</span>
+        </div>
+        <div class="text-xs text-slate-500 mt-1">Autonomous session revocation & FinCEN SAR drafting</div>
+        <div class="absolute right-3 top-3 text-slate-700 text-2xl font-mono">⚡</div>
+      </div>
+    </div>
+
+    <!-- Main Threat Investigation Console Wrapper -->
+    <div id="threatConsoleSection" class="transition-all duration-300">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+      <!-- Left Column: Threat Feed & Incident Selector (4 Cols) -->
+      <div class="lg:col-span-4 space-y-4">
+        <div class="bg-[#111728] border border-slate-800 rounded-xl p-4">
+          <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+            <h2 class="font-bold text-sm tracking-wide text-white uppercase flex items-center">
+              <span class="w-2.5 h-2.5 rounded-full bg-rose-500 mr-2 animate-pulse"></span>
+              Active Threat Dossiers
+            </h2>
+            <span id="alertCountBadge" class="px-2 py-0.5 rounded-full bg-rose-500/20 text-rose-400 font-mono text-xs font-bold">4 High / Critical</span>
+          </div>
+
+          <!-- Filter Pills -->
+          <div class="flex space-x-1 mt-3 overflow-x-auto pb-1 text-xs">
+            <button onclick="filterIncidents('all')" class="filter-btn px-2.5 py-1 rounded bg-slate-800 text-cyan-400 font-medium whitespace-nowrap">All (4)</button>
+            <button onclick="filterIncidents('Retail Banking')" class="filter-btn px-2.5 py-1 rounded bg-slate-900 text-slate-400 hover:text-slate-200 whitespace-nowrap">Retail</button>
+            <button onclick="filterIncidents('Trading & Markets')" class="filter-btn px-2.5 py-1 rounded bg-slate-900 text-slate-400 hover:text-slate-200 whitespace-nowrap">Trading</button>
+            <button onclick="filterIncidents('Core IT & Infrastructure')" class="filter-btn px-2.5 py-1 rounded bg-slate-900 text-slate-400 hover:text-slate-200 whitespace-nowrap">IT / DBA</button>
+            <button onclick="filterIncidents('Wealth Management')" class="filter-btn px-2.5 py-1 rounded bg-slate-900 text-slate-400 hover:text-slate-200 whitespace-nowrap">Wealth</button>
+          </div>
+
+          <!-- Incidents List -->
+          <div id="incidentsList" class="space-y-2.5 mt-3 max-h-[620px] overflow-y-auto pr-1">
+            <!-- Dynamically populated via JS -->
+          </div>
+        </div>
+
+        <!-- Compliance & Regulatory Crosswalk Widget -->
+        <div class="bg-[#111728] border border-slate-800 rounded-xl p-4 text-xs space-y-3">
+          <div class="font-bold text-slate-300 uppercase tracking-wider text-[11px] flex justify-between items-center">
+            <span>Regulatory Impact Mapping</span>
+            <span class="text-cyan-400 font-mono">FINRA / FFIEC / SEC</span>
+          </div>
+          <div class="space-y-2">
+            <div class="p-2.5 rounded bg-slate-900/80 border border-slate-800 flex justify-between items-center">
+              <div>
+                <div class="font-semibold text-slate-200">GLBA 501(b) Customer Safeguards</div>
+                <div class="text-[10px] text-slate-400">PII Exfiltration & USB Device Blocks</div>
+              </div>
+              <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-mono text-[10px]">ENFORCED</span>
+            </div>
+            <div class="p-2.5 rounded bg-slate-900/80 border border-slate-800 flex justify-between items-center">
+              <div>
+                <div class="font-semibold text-slate-200">SOX 404 Financial Ledger Control</div>
+                <div class="text-[10px] text-slate-400">Off-hours Trading & Ledger Overrides</div>
+              </div>
+              <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-mono text-[10px]">ENFORCED</span>
+            </div>
+            <div class="p-2.5 rounded bg-slate-900/80 border border-slate-800 flex justify-between items-center">
+              <div>
+                <div class="font-semibold text-slate-200">SWIFT CSP Control 2.1 & 6.4</div>
+                <div class="text-[10px] text-slate-400">Privilege Elevation & Log Deletion</div>
+              </div>
+              <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-mono text-[10px]">ENFORCED</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Interactive Investigation Workspace (8 Cols) -->
+      <div class="lg:col-span-8 space-y-4">
+
+        <!-- Selected Threat Actor Header Card -->
+        <div id="targetHeaderCard" class="bg-[#111728] border border-slate-800 rounded-xl p-5 glow-rose">
+          <div class="flex flex-wrap items-start justify-between gap-4">
+            <div class="flex items-center space-x-4">
+              <div id="targetAvatar" class="w-14 h-14 rounded-xl bg-gradient-to-tr from-rose-600 to-amber-600 flex items-center justify-center text-xl font-bold text-white shadow-md">
+                AW
+              </div>
+              <div>
+                <div class="flex items-center space-x-2">
+                  <h1 id="targetName" class="text-lg font-bold text-white">Alice Walker</h1>
+                  <span id="targetIdBadge" class="text-xs px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono border border-slate-700">USR_RET_04</span>
+                  <span id="targetTierBadge" class="text-xs px-2.5 py-0.5 rounded font-bold font-mono bg-rose-500/20 text-rose-400 border border-rose-500/40">CRITICAL</span>
+                </div>
+                <div class="text-xs text-slate-400 mt-1 flex flex-wrap gap-x-3 gap-y-1">
+                  <span>Role: <strong id="targetRole" class="text-slate-200">Senior Loan Officer</strong></span>
+                  <span>Dept: <strong id="targetDept" class="text-slate-200">Retail Banking</strong></span>
+                  <span>Workstation: <strong id="targetWorkstation" class="text-slate-200 font-mono">PC-RET-04</strong></span>
+                </div>
+                <div id="targetHrNote" class="text-xs text-amber-400 mt-1 font-mono">
+                  ⚠️ Flight Risk: Pending Resignation (Effective 2025-05-28)
+                </div>
+              </div>
+            </div>
+
+            <!-- Risk Score Metric Breakdown -->
+            <div class="flex items-center space-x-4 bg-slate-900/90 border border-slate-800 p-3 rounded-lg">
+              <div class="text-center pr-3 border-r border-slate-800">
+                <div class="text-[10px] text-slate-400 uppercase font-semibold">Hybrid Risk</div>
+                <div id="targetHybridScore" class="text-2xl font-black text-rose-400 font-mono">92.5</div>
+                <div class="text-[10px] text-slate-500">Scale 0-100</div>
+              </div>
+              <div class="text-center pr-3 border-r border-slate-800">
+                <div class="text-[10px] text-slate-400 uppercase font-semibold">UEBA Drift</div>
+                <div id="targetUebaScore" class="text-lg font-bold text-amber-400 font-mono">89.0</div>
+                <div class="text-[10px] text-slate-500">Z-Deviation</div>
+              </div>
+              <div class="text-center">
+                <div class="text-[10px] text-slate-400 uppercase font-semibold">Deep Learning</div>
+                <div id="targetDlScore" class="text-lg font-bold text-cyan-400 font-mono">94.2</div>
+                <div class="text-[10px] text-slate-500">Seq Autoencoder</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Analytical Visualizations: UEBA Radar / Z-Scores & Sequence Reconstruction -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+          <!-- Chart 1: UEBA Multi-Dimensional Z-Score Deviations -->
+          <div class="bg-[#111728] border border-slate-800 rounded-xl p-4">
+            <div class="flex items-center justify-between mb-2">
+              <div class="text-xs font-bold text-slate-300 uppercase tracking-wide">UEBA Behavioral Drift vs Peer Baseline</div>
+              <span class="text-[10px] font-mono text-cyan-400">Z-Scores (σ)</span>
+            </div>
+            <canvas id="uebaChart" height="170" class="w-full"></canvas>
+            <div class="text-[11px] text-slate-400 mt-2 flex justify-between">
+              <span>Cohort: Department Mean (<span class="text-slate-300">σ=0</span>)</span>
+              <span class="text-rose-400 font-mono font-semibold">Critical Spike: > 3.0σ</span>
+            </div>
+          </div>
+
+          <!-- Chart 2: Deep Learning 30-Day Sequence Reconstruction Error -->
+          <div class="bg-[#111728] border border-slate-800 rounded-xl p-4">
+            <div class="flex items-center justify-between mb-2">
+              <div class="text-xs font-bold text-slate-300 uppercase tracking-wide">Deep Sequence Reconstruction Loss</div>
+              <span class="text-[10px] font-mono text-rose-400">Reconstruction MSE</span>
+            </div>
+            <canvas id="dlChart" height="170" class="w-full"></canvas>
+            <div class="text-[11px] text-slate-400 mt-2 flex justify-between">
+              <span>Threshold: <span class="text-cyan-400 font-mono">0.034 (Normal)</span></span>
+              <span class="text-rose-400 font-mono font-semibold">Breach Window: Days 23-28</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Agentic AI Deliberation Transcript Console -->
+        <div class="bg-[#111728] border border-slate-800 rounded-xl p-5 space-y-4">
+          <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+            <div>
+              <h3 class="font-bold text-sm tracking-wide text-white uppercase flex items-center">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 mr-2"></span>
+                Agentic AI Autonomous SOC Deliberation
+              </h3>
+              <p class="text-xs text-slate-400">OODA collaborative reasoning transcript (Triage → Profiler → Hunter → Response)</p>
+            </div>
+            <span class="text-xs font-mono px-2.5 py-1 rounded bg-slate-800 text-emerald-400 border border-slate-700">Multi-Agent Consensus Reached</span>
+          </div>
+
+          <!-- Transcript Cards -->
+          <div id="agentTranscriptFeed" class="space-y-3 max-h-[380px] overflow-y-auto pr-1">
+            <!-- Populated via JS -->
+          </div>
+        </div>
+
+        <!-- Human-in-the-Loop Remediation & Regulatory Filing Panel -->
+        <div class="bg-[#111728] border border-slate-800 rounded-xl p-5 space-y-4">
+          <div class="flex items-center justify-between">
+            <div>
+              <h3 class="font-bold text-sm text-white uppercase tracking-wide">Automated Zero-Trust Containment & Compliance</h3>
+              <p class="text-xs text-slate-400">Enforce immediate policy mitigation or review formal FinCEN Form 111 SAR filing</p>
+            </div>
+            <div id="actionStatusBadge" class="text-xs px-2.5 py-1 rounded font-mono font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+              POLICIES EXECUTED (142ms)
+            </div>
+          </div>
+
+          <!-- Containment Actions Grid -->
+          <div id="containmentOrdersContainer" class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+            <!-- Populated via JS -->
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-slate-800">
+            <div class="flex flex-wrap items-center gap-2">
+              <button onclick="triggerContainment('Revoke Active Kerberos Sessions & Tokens')" class="px-3 py-2 rounded bg-rose-600 hover:bg-rose-500 text-white font-semibold text-xs transition flex items-center space-x-1.5 shadow-sm">
+                <span>🔒 Revoke Tokens</span>
+              </button>
+              <button onclick="triggerContainment('Isolate Host Network Endpoint')" class="px-3 py-2 rounded bg-amber-600 hover:bg-amber-500 text-white font-semibold text-xs transition flex items-center space-x-1.5 shadow-sm">
+                <span>🚫 Isolate Host</span>
+              </button>
+              <button onclick="showSarModal()" class="px-3 py-2 rounded bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs transition flex items-center space-x-1.5 shadow-sm">
+                <span>📄 View FinCEN SAR Filing</span>
+              </button>
+            </div>
+            <button onclick="dismissIncident()" class="px-3 py-2 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold border border-slate-700 transition">
+              Mark Resolved / Archive
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    </div>
+
+    <!-- Dedicated Code Explorer with Complete Toggle Bar -->
+    <section id="codeExplorerSection" class="bg-[#111728] border border-slate-800 rounded-xl p-5 shadow-2xl space-y-4">
+      
+      <!-- Code Explorer Header -->
+      <div class="flex flex-wrap items-center justify-between pb-3 border-b border-slate-800 gap-3">
+        <div>
+          <div class="flex items-center space-x-2">
+            <h2 class="font-bold text-sm tracking-wide text-white uppercase flex items-center">
+              <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 mr-2 animate-pulse"></span>
+              Platform Architecture & Source Code Explorer
+            </h2>
+            <span class="text-xs px-2 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-800 font-mono">11 Code Modules</span>
+          </div>
+          <p class="text-xs text-slate-400 mt-0.5">Toggle between Python modules below to inspect full implementations of UEBA, Deep Sequence Autoencoder, SOC Agents, & CERT Telemetry</p>
+        </div>
+
+        <!-- Right action buttons -->
+        <div class="flex items-center space-x-2">
+          <!-- Search in Code -->
+          <div class="relative">
+            <input type="text" id="codeSearchInput" oninput="searchInCode()" placeholder="🔍 Search in file..." class="px-2.5 py-1 text-xs bg-slate-900 border border-slate-700 rounded text-slate-200 placeholder-slate-500 focus:outline-none focus:border-cyan-500 w-44">
+          </div>
+          <button onclick="copyCurrentCode()" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 rounded text-xs font-semibold transition flex items-center space-x-1">
+            <span id="copyCodeIcon">📋</span>
+            <span id="copyCodeText">Copy Code</span>
+          </button>
+          <button onclick="downloadCurrentCode()" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 rounded text-xs font-semibold transition flex items-center space-x-1">
+            <span>⬇ Download</span>
+          </button>
+          <button onclick="toggleLineWrap()" id="lineWrapBtn" class="px-2.5 py-1.5 bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300 rounded text-xs font-mono">
+            Wrap: OFF
+          </button>
+        </div>
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="flex flex-wrap items-center gap-1.5 text-xs">
+        <span class="text-slate-400 text-[11px] font-semibold mr-1 uppercase">Filter Modules:</span>
+        <button onclick="filterCodeCategory('all')" id="catBtn-all" class="code-cat-btn px-2.5 py-1 rounded bg-cyan-600 text-white font-medium">All Files (11)</button>
+        <button onclick="filterCodeCategory('Pipeline')" id="catBtn-Pipeline" class="code-cat-btn px-2.5 py-1 rounded bg-slate-900 text-slate-400 hover:text-slate-200 border border-slate-800">Pipeline (1)</button>
+        <button onclick="filterCodeCategory('Agents')" id="catBtn-Agents" class="code-cat-btn px-2.5 py-1 rounded bg-slate-900 text-slate-400 hover:text-slate-200 border border-slate-800">SOC Agents (2)</button>
+        <button onclick="filterCodeCategory('Models')" id="catBtn-Models" class="code-cat-btn px-2.5 py-1 rounded bg-slate-900 text-slate-400 hover:text-slate-200 border border-slate-800">Deep Learning & Fusion (2)</button>
+        <button onclick="filterCodeCategory('UEBA')" id="catBtn-UEBA" class="code-cat-btn px-2.5 py-1 rounded bg-slate-900 text-slate-400 hover:text-slate-200 border border-slate-800">UEBA Profiler (2)</button>
+        <button onclick="filterCodeCategory('Data')" id="catBtn-Data" class="code-cat-btn px-2.5 py-1 rounded bg-slate-900 text-slate-400 hover:text-slate-200 border border-slate-800">CERT Synthesizer (2)</button>
+        <button onclick="filterCodeCategory('Server')" id="catBtn-Server" class="code-cat-btn px-2.5 py-1 rounded bg-slate-900 text-slate-400 hover:text-slate-200 border border-slate-800">Web Server (1)</button>
+        <button onclick="filterCodeCategory('Tests')" id="catBtn-Tests" class="code-cat-btn px-2.5 py-1 rounded bg-slate-900 text-slate-400 hover:text-slate-200 border border-slate-800">Test Suite (1)</button>
+      </div>
+
+      <!-- THE PRIMARY CODE FILE TOGGLE BAR -->
+      <div class="border-y border-slate-800/80 py-2.5">
+        <div class="text-[11px] text-slate-400 uppercase font-mono font-semibold mb-1.5 flex justify-between items-center">
+          <span>File Toggle Bar (Click any file to inspect code):</span>
+          <span id="activeFileIndicator" class="text-cyan-400 font-mono">pipeline.py</span>
+        </div>
+        <div id="codeToggleBar" class="flex space-x-2 overflow-x-auto pb-1.5 text-xs scrollbar-thin">
+          <!-- Populated dynamically via JS -->
+        </div>
+      </div>
+
+      <!-- Active File Metadata Banner -->
+      <div id="fileMetaBanner" class="bg-slate-900/90 border border-slate-800 rounded-lg p-3 flex flex-wrap items-center justify-between gap-2 text-xs">
+        <div class="flex items-center space-x-3">
+          <span class="w-3 h-3 rounded bg-cyan-500 inline-block shadow-sm"></span>
+          <div>
+            <div class="flex items-center space-x-2">
+              <span id="fileMetaPath" class="font-mono font-bold text-slate-100">pipeline.py</span>
+              <span id="fileMetaCategory" class="px-2 py-0.2 rounded bg-indigo-950 text-indigo-300 font-mono text-[10px] border border-indigo-800">Pipeline</span>
+            </div>
+            <p id="fileMetaDesc" class="text-[11px] text-slate-400 mt-0.5">Master Pipeline Runner</p>
+          </div>
+        </div>
+        <div class="flex items-center space-x-3 font-mono text-[11px]">
+          <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Lines: <strong id="fileMetaLines" class="text-cyan-400">...</strong></span>
+          <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Size: <strong id="fileMetaSize" class="text-emerald-400">...</strong></span>
+          <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Language: <strong class="text-amber-400">Python 3.14</strong></span>
+        </div>
+      </div>
+
+      <!-- Code Display Block with Line Numbers -->
+      <div class="relative rounded-lg border border-slate-800 bg-[#070b14] overflow-hidden shadow-inner">
+        <div id="codeContainer" class="max-h-[560px] overflow-auto flex font-mono text-xs leading-relaxed text-slate-200">
+          <div id="codeLineNumbers" class="select-none bg-[#0a0f1d] py-3 px-3 text-right text-slate-600 border-r border-slate-800/80 font-mono min-w-[3.5rem]">
+            <!-- Line numbers generated via JS -->
+          </div>
+          <pre id="codePre" class="p-3 m-0 flex-1 overflow-x-auto whitespace-pre"><code id="codeText" class="language-python">Loading code...</code></pre>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FinCEN SAR Modal -->
+  <div id="sarModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-[#111728] border border-slate-700 rounded-xl max-w-2xl w-full p-6 space-y-4 shadow-2xl">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+        <div>
+          <h3 class="font-bold text-base text-white">FinCEN Form 111 - Suspicious Activity Report (SAR)</h3>
+          <p class="text-xs text-slate-400">Automated Regulatory Filing Draft • Financial Crimes Enforcement Network</p>
+        </div>
+        <button onclick="closeSarModal()" class="text-slate-400 hover:text-white font-bold text-lg">✕</button>
+      </div>
+      <div class="space-y-3 text-xs">
+        <div class="grid grid-cols-2 gap-3 bg-slate-900 p-3 rounded border border-slate-800">
+          <div><strong class="text-slate-400">Filing Institution:</strong> <span class="text-slate-200">Meridian Bank & Trust N.A.</span></div>
+          <div><strong class="text-slate-400">Primary Subject:</strong> <span id="sarSubject" class="text-slate-200">Alice Walker (USR_RET_04)</span></div>
+          <div><strong class="text-slate-400">Category:</strong> <span class="text-rose-400">Insider Data Exfiltration / Bank Sabotage</span></div>
+          <div><strong class="text-slate-400">Est. Exposure:</strong> <span id="sarExposure" class="text-emerald-400">$3,200,000 (GLBA/PII)</span></div>
+        </div>
+        <div>
+          <div class="text-slate-400 font-semibold mb-1">Automated Forensic Narrative (Generated by Agentic AI):</div>
+          <div id="sarNarrative" class="p-3 bg-slate-950 rounded border border-slate-800 font-mono text-[11px] leading-relaxed text-slate-300 max-h-48 overflow-y-auto">
+            Narrative text loading...
+          </div>
+        </div>
+      </div>
+      <div class="flex justify-end space-x-3 pt-3 border-t border-slate-800">
+        <button onclick="closeSarModal()" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 rounded text-xs font-semibold text-slate-300">Close</button>
+        <button onclick="transmitSar()" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 rounded text-xs font-semibold text-white">Sign & Submit to FinCEN Gateway</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Raw CERT CSV Dataset Inspector Modal -->
+  <div id="datasetModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-[#111728] border border-cyan-800 rounded-xl max-w-4xl w-full p-6 space-y-4 shadow-2xl">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+        <div>
+          <div class="flex items-center space-x-2">
+            <h3 class="font-bold text-base text-white">Live CERT Multi-Modal Dataset (Real Enterprise Logs)</h3>
+            <span class="px-2 py-0.5 rounded bg-cyan-950 text-cyan-400 font-mono text-[11px] border border-cyan-800">CMU CERT Standards</span>
+          </div>
+          <p class="text-xs text-slate-400 mt-0.5">Directory: <code class="text-cyan-300 font-mono">scratch\insider_threat_detection_ueba\output\cert_csv\</code></p>
+        </div>
+        <button onclick="closeDatasetModal()" class="text-slate-400 hover:text-white font-bold text-lg">✕</button>
+      </div>
+
+      <!-- Dataset Stream Tabs -->
+      <div class="flex space-x-2 border-b border-slate-800 pb-2 text-xs">
+        <button onclick="renderDatasetTab('device')" id="tab-device" class="px-3 py-1.5 rounded bg-cyan-600 text-white font-semibold">device.csv (USB Storage)</button>
+        <button onclick="renderDatasetTab('logon')" id="tab-logon" class="px-3 py-1.5 rounded bg-slate-800 text-slate-300 hover:text-white">logon.csv (Authentication)</button>
+        <button onclick="renderDatasetTab('file')" id="tab-file" class="px-3 py-1.5 rounded bg-slate-800 text-slate-300 hover:text-white">file.csv (File Access & Staging)</button>
+        <button onclick="renderDatasetTab('email')" id="tab-email" class="px-3 py-1.5 rounded bg-slate-800 text-slate-300 hover:text-white">email.csv (Exfiltration)</button>
+      </div>
+
+      <!-- Table Container -->
+      <div class="overflow-x-auto max-h-72 border border-slate-800 rounded bg-slate-950 p-2 font-mono text-[11px]">
+        <table class="w-full text-left text-slate-300">
+          <thead id="datasetThead" class="text-slate-400 uppercase text-[10px] border-b border-slate-800"></thead>
+          <tbody id="datasetTbody" class="divide-y divide-slate-900"></tbody>
+        </table>
+      </div>
+
+      <div class="flex items-center justify-between pt-3 border-t border-slate-800 text-xs text-slate-400">
+        <span>Showing real log events analyzed by the UEBA & Deep Learning pipeline.</span>
+        <button onclick="closeDatasetModal()" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 rounded text-xs font-semibold text-slate-200">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Live High-Performance SOC Threat Alert Modal -->
+  <div id="liveAlertModal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 hidden flex items-center justify-center p-3 sm:p-5 overflow-y-auto">
+    <div class="bg-[#0b0f19] border-2 border-rose-500/80 rounded-2xl max-w-5xl w-full p-5 sm:p-6 space-y-4 shadow-2xl shadow-rose-950/80 my-auto text-slate-100 animate-in fade-in zoom-in-95 duration-200">
+      
+      <!-- Top Alert Bar -->
+      <div class="flex flex-wrap items-center justify-between pb-3 border-b border-rose-500/30 gap-3">
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 rounded-xl bg-rose-600/20 border border-rose-500 flex items-center justify-center text-rose-400 shadow-lg shadow-rose-600/30 animate-pulse">
+            <span class="text-xl">🚨</span>
+          </div>
+          <div>
+            <div class="flex items-center space-x-2">
+              <span class="font-extrabold text-sm sm:text-base text-rose-400 tracking-wider font-mono">FIN-SOC ZERO-TRUST THREAT INTERCEPTION</span>
+              <span id="alertSeverityBadge" class="px-2.5 py-0.5 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/40 text-xs font-mono font-bold animate-pulse">P1_CRITICAL (99.9/100)</span>
+            </div>
+            <p class="text-xs text-slate-400 font-mono mt-0.5">Autonomous Zero-Trust Containment Active • Response Latency &lt; 1.4s</p>
+          </div>
+        </div>
+
+        <div class="flex items-center space-x-2">
+          <!-- Audio Siren Toggle Button -->
+          <button onclick="toggleAlertAudio()" id="alertAudioToggleBtn" class="px-2.5 py-1.5 rounded-lg bg-slate-900 border border-slate-700 hover:border-slate-500 text-xs font-mono text-slate-300 flex items-center space-x-1.5 transition">
+            <span id="alertAudioIcon">🔊</span>
+            <span id="alertAudioStatus">Siren ON</span>
+          </button>
+          <!-- Close Button -->
+          <button onclick="closeLiveAlertModal()" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center text-sm font-bold transition">
+            ✕
+          </button>
+        </div>
+      </div>
+
+      <!-- Threat Scenario Selector Bar -->
+      <div class="bg-slate-900/80 border border-slate-800 rounded-xl p-2.5">
+        <div class="text-[11px] font-mono text-slate-400 uppercase tracking-wider mb-2 flex items-center justify-between">
+          <span>Select Planted Attack Scenario:</span>
+          <span class="text-rose-400 font-semibold text-[10px]">4 Ground-Truth Benchmarks</span>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
+          <button onclick="switchLiveAlertScenario(0)" id="scenBtn0" class="alert-scen-btn px-2.5 py-1.5 rounded bg-rose-950/80 border border-rose-500/80 text-rose-200 font-medium text-left truncate transition">
+            <div class="font-bold text-[11px] truncate">1. Devon Reed (Retail)</div>
+            <div class="text-[10px] text-slate-400 truncate">Bulk USB Exfil (3.8GB)</div>
+          </button>
+          <button onclick="switchLiveAlertScenario(1)" id="scenBtn1" class="alert-scen-btn px-2.5 py-1.5 rounded bg-slate-950 border border-slate-800 text-slate-400 hover:text-slate-200 font-medium text-left truncate transition">
+            <div class="font-bold text-[11px] truncate">2. Marcus Vance (Trading)</div>
+            <div class="text-[10px] text-slate-400 truncate">Rogue Ledger & VaR</div>
+          </button>
+          <button onclick="switchLiveAlertScenario(2)" id="scenBtn2" class="alert-scen-btn px-2.5 py-1.5 rounded bg-slate-950 border border-slate-800 text-slate-400 hover:text-slate-200 font-medium text-left truncate transition">
+            <div class="font-bold text-[11px] truncate">3. Devon Reed (Core IT)</div>
+            <div class="text-[10px] text-slate-400 truncate">SWIFT Wire Log Wipe</div>
+          </button>
+          <button onclick="switchLiveAlertScenario(3)" id="scenBtn3" class="alert-scen-btn px-2.5 py-1.5 rounded bg-slate-950 border border-slate-800 text-slate-400 hover:text-slate-200 font-medium text-left truncate transition">
+            <div class="font-bold text-[11px] truncate">4. Sophia Chen (Wealth)</div>
+            <div class="text-[10px] text-slate-400 truncate">Cloud Staging & Poaching</div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Quantitative Telemetry Cards Grid -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        <div class="p-3 rounded-xl bg-slate-900/90 border border-rose-500/30">
+          <div class="text-[10px] font-mono text-slate-400 uppercase tracking-wide">Detection Latency</div>
+          <div id="alertMetricLatency" class="text-xl font-bold font-mono text-rose-400 mt-0.5">142.6 ms</div>
+          <div class="text-[10px] text-emerald-400 font-mono mt-0.5">⚡ Machine-Speed Closed Loop</div>
+        </div>
+        <div class="p-3 rounded-xl bg-slate-900/90 border border-rose-500/30">
+          <div class="text-[10px] font-mono text-slate-400 uppercase tracking-wide">12D UEBA Statistical Drift</div>
+          <div id="alertMetricZScore" class="text-xl font-bold font-mono text-amber-400 mt-0.5">+18.4σ</div>
+          <div class="text-[10px] text-slate-400 font-mono mt-0.5">Peer Baseline: ≤ 1.5σ</div>
+        </div>
+        <div class="p-3 rounded-xl bg-slate-900/90 border border-rose-500/30">
+          <div class="text-[10px] font-mono text-slate-400 uppercase tracking-wide">Bi-LSTM Recon Loss</div>
+          <div id="alertMetricLoss" class="text-xl font-bold font-mono text-indigo-400 mt-0.5">0.510 MSE</div>
+          <div class="text-[10px] text-slate-400 font-mono mt-0.5">Baseline: 0.021 ± 0.007</div>
+        </div>
+        <div class="p-3 rounded-xl bg-slate-900/90 border border-rose-500/30">
+          <div class="text-[10px] font-mono text-slate-400 uppercase tracking-wide">Financial Exposure</div>
+          <div id="alertMetricExposure" class="text-xl font-bold font-mono text-rose-300 mt-0.5">$3,506,250</div>
+          <div class="text-[10px] text-rose-400 font-mono mt-0.5">Est. Fraud & Legal Risk</div>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs Inside Modal -->
+      <div class="flex items-center space-x-2 border-b border-slate-800 pb-2 text-xs font-mono">
+        <button onclick="switchAlertViewTab('hud')" id="alertTabHudBtn" class="px-3 py-1.5 rounded-lg bg-rose-600 text-white font-bold flex items-center space-x-1.5 transition">
+          <span>🛡️ Tactical HUD & OODA Loop</span>
+        </button>
+        <button onclick="switchAlertViewTab('siem')" id="alertTabSiemBtn" class="px-3 py-1.5 rounded-lg text-slate-400 hover:text-slate-200 font-bold flex items-center space-x-1.5 transition">
+          <span>📋 Machine SIEM JSON (Splunk/CEF)</span>
+        </button>
+        <button onclick="switchAlertViewTab('sar')" id="alertTabSarBtn" class="px-3 py-1.5 rounded-lg text-slate-400 hover:text-slate-200 font-bold flex items-center space-x-1.5 transition">
+          <span>⚖️ FinCEN SAR Form 111 Regulatory Draft</span>
+        </button>
+      </div>
+
+      <!-- TAB 1: Visual Tactical HUD & OODA Deliberation -->
+      <div id="alertContentHud" class="space-y-4">
+        <!-- Target Info & MITRE ATT&CK Badges -->
+        <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800 grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+          <div>
+            <div class="text-[11px] font-mono text-slate-400 uppercase">Actor Profile & Target Dossier:</div>
+            <div class="mt-1 flex items-baseline space-x-2">
+              <span id="alertTargetName" class="font-bold text-sm text-white">Devon Reed</span>
+              <span id="alertTargetId" class="font-mono text-slate-400">(USR_RET_04)</span>
+            </div>
+            <div id="alertTargetRoleDept" class="text-slate-300 mt-0.5">Credit Analyst • Retail Banking</div>
+            <div id="alertTargetTerminal" class="text-slate-400 font-mono text-[11px] mt-0.5">Terminal: PC-RET-044 (IP: 10.14.2.88)</div>
+            <div id="alertTargetHr" class="text-amber-400 font-mono text-[11px] mt-1">⚠️ Active Flight Risk: Resignation Filed (2026-05-31)</div>
+          </div>
+          <div>
+            <div class="text-[11px] font-mono text-slate-400 uppercase">MITRE ATT&CK Matrix Alignment:</div>
+            <div id="alertMitreBadges" class="flex flex-wrap gap-1.5 mt-2">
+              <span class="px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 border border-rose-500/30 font-mono text-[11px]">T1052.001 Exfiltration Over USB</span>
+              <span class="px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 font-mono text-[11px]">T1078 Valid Accounts</span>
+              <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30 font-mono text-[11px]">T1048 Exfil Over Protocol</span>
+            </div>
+            <div class="text-[11px] font-mono text-emerald-400 mt-2 flex items-center space-x-1">
+              <span>🎯 Dynamic Honeypot Trap:</span>
+              <span id="alertHoneypotStatus" class="font-bold">TOUCH CONFIRMED (Q4_Client_Tax_Records.xlsx)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sub-millisecond Autonomous Killswitch Timeline -->
+        <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800 space-y-2">
+          <div class="text-[11px] font-mono text-slate-400 uppercase flex items-center justify-between">
+            <span>Machine-Speed Zero-Trust Killswitch Execution:</span>
+            <span class="text-emerald-400 font-bold text-[10px]">TOTAL CONTAINMENT: 1,337 ms</span>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs font-mono">
+            <div class="p-2 rounded bg-slate-950 border border-slate-800">
+              <div class="text-slate-400 text-[10px]">Kerberos Token Revoke</div>
+              <div class="text-emerald-400 font-bold">142 ms</div>
+              <div class="text-[10px] text-slate-500">Active Directory TGT</div>
+            </div>
+            <div class="p-2 rounded bg-slate-950 border border-slate-800">
+              <div class="text-slate-400 text-[10px]">Host Network Isolation</div>
+              <div class="text-emerald-400 font-bold">310 ms</div>
+              <div class="text-[10px] text-slate-500">Microsegmentation Rule</div>
+            </div>
+            <div class="p-2 rounded bg-slate-950 border border-slate-800">
+              <div class="text-slate-400 text-[10px]">Relational Ledger Freeze</div>
+              <div class="text-emerald-400 font-bold">205 ms</div>
+              <div class="text-[10px] text-slate-500">Core Banking Gateway</div>
+            </div>
+            <div class="p-2 rounded bg-slate-950 border border-slate-800">
+              <div class="text-slate-400 text-[10px]">FinCEN SAR Package</div>
+              <div class="text-emerald-400 font-bold">680 ms</div>
+              <div class="text-[10px] text-slate-500">Form 111 XML Narrative</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Multi-Agent OODA Deliberation Transcript -->
+        <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800 space-y-2">
+          <div class="text-[11px] font-mono text-slate-400 uppercase flex items-center justify-between">
+            <span>Multi-Agent OODA Loop Real-Time Deliberation:</span>
+            <span class="text-cyan-400 font-bold text-[10px]">4 Autonomous Personas</span>
+          </div>
+          <div id="alertOodaTranscript" class="space-y-2 text-xs font-mono max-h-48 overflow-y-auto pr-1">
+            <!-- Populated via JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 2: Machine-Speed SIEM JSON (Splunk/CEF) -->
+      <div id="alertContentSiem" class="hidden space-y-3">
+        <div class="flex items-center justify-between text-xs font-mono text-slate-400">
+          <span>Structured SIEM Common Event Format (CEF / JSON v2.4):</span>
+          <button onclick="copyAlertSiemJson()" class="px-2.5 py-1 rounded bg-cyan-950 hover:bg-cyan-900 border border-cyan-700 text-cyan-300 font-bold transition flex items-center space-x-1">
+            <span>📋 Copy SIEM JSON</span>
+          </button>
+        </div>
+        <pre id="alertSiemCodeBlock" class="p-4 rounded-xl bg-slate-950 border border-slate-800 font-mono text-[11px] text-cyan-300 overflow-x-auto max-h-96 leading-relaxed selection:bg-cyan-900"></pre>
+      </div>
+
+      <!-- TAB 3: FinCEN Form 111 SAR Regulatory Draft -->
+      <div id="alertContentSar" class="hidden space-y-3">
+        <div class="flex items-center justify-between text-xs font-mono text-slate-400">
+          <span>U.S. Treasury FinCEN Form 111 Electronic Filing Narrative (31 CFR § 1020.320):</span>
+          <button onclick="downloadAlertFinCenSar()" class="px-2.5 py-1 rounded bg-emerald-950 hover:bg-emerald-900 border border-emerald-700 text-emerald-300 font-bold transition flex items-center space-x-1">
+            <span>📄 Download Official SAR (.txt)</span>
+          </button>
+        </div>
+        <pre id="alertSarCodeBlock" class="p-4 rounded-xl bg-slate-950 border border-slate-800 font-mono text-[11px] text-emerald-300 overflow-x-auto max-h-96 leading-relaxed whitespace-pre-wrap"></pre>
+      </div>
+
+      <!-- Modal Footer Action Buttons -->
+      <div class="flex flex-wrap items-center justify-between pt-3 border-t border-slate-800 gap-2">
+        <div class="flex items-center space-x-2">
+          <button onclick="executeInstantQuarantine()" id="alertQuarantineBtn" class="px-4 py-2 bg-gradient-to-r from-rose-700 to-red-600 hover:from-rose-600 hover:to-red-500 border border-rose-500 text-white rounded-lg text-xs font-bold transition shadow-lg shadow-rose-900/40 flex items-center space-x-1.5">
+            <span>🛡️ Enforce Machine Quarantine</span>
+          </button>
+          <button onclick="copyAlertSiemJson()" class="px-3 py-2 bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 rounded-lg text-xs font-semibold transition">
+            📋 Copy JSON
+          </button>
+          <button onclick="downloadAlertFinCenSar()" class="px-3 py-2 bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 rounded-lg text-xs font-semibold transition">
+            📄 Export FinCEN SAR
+          </button>
+        </div>
+        <button onclick="closeLiveAlertModal()" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg text-xs font-semibold transition">
+          ✕ Dismiss Alert
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed bottom-5 right-5 bg-emerald-600 text-white px-4 py-2.5 rounded-lg shadow-xl text-xs font-semibold hidden transition-all duration-300 z-50 flex items-center space-x-2">
+    <span>✓</span>
+    <span id="toastMsg">Action executed</span>
+  </div>
+
+  <!-- Embedded Data & Application State Logic -->
+  <script>
+    // Embedded simulation dataset covering the 4 planted banking threat scenarios
+    const THREAT_DATA = {
+      incidents: [
+        {
+          user_id: "USR_RET_04",
+          employee_name: "Alice Walker",
+          role: "Senior Loan Officer",
+          department: "Retail Banking",
+          workstation: "PC-RET-04",
+          date: "2025-05-25",
+          hybrid_score: 92.5,
+          ueba_score: 89.0,
+          dl_score: 94.2,
+          threat_tier: "CRITICAL",
+          hr_note: "⚠️ Flight Risk: Pending Resignation (Effective 2025-05-28) • Disciplinary PIP",
+          financial_impact: "$3,200,000 (Customer PII & Credit Records)",
+          high_risk_drivers: [
+            "Removable USB Data Volume (3,850 MB, Z=6.4)",
+            "Restricted PII Files Copied (18 files, Z=5.8)",
+            "After-Hours Weekend Logons (Z=4.2)",
+            "External Encrypted ProtonMail Attachments (Z=4.9)"
+          ],
+          nexus_triggers: ["Sensitive Data Staging & Exfiltration Nexus", "Off-Hours Weekend Data Access"],
+          zscores: {
+            "After-Hours Logon": 4.2,
+            "Sensitive Files": 5.8,
+            "USB Volume": 6.4,
+            "External Email": 4.9,
+            "Ledger Override": 0.0,
+            "Abnormal PC": 0.0
+          },
+          dl_timeline: [0.02, 0.019, 0.022, 0.021, 0.018, 0.025, 0.031, 0.038, 0.18, 0.32, 0.44, 0.51],
+          agents: [
+            {
+              agent: "AlertTriageAgent",
+              role: "Senior Tier-1 Financial SOC Analyst",
+              thought: "Ingested anomalous telemetry for USR_RET_04 on Day 25. Hybrid risk score is 92.5/100 (CRITICAL). Exfiltration volume violates GLBA 501(b) and PCI-DSS 10.2 thresholds. Priority escalated to P1_CRITICAL.",
+              verdict: "P1_CRITICAL Threat Confirmed"
+            },
+            {
+              agent: "BehavioralProfilerAgent",
+              role: "UEBA Identity & Psychology Specialist",
+              thought: "Target Alice Walker submitted formal resignation 5 days ago. Psychological profiling indicates hostile flight-risk motivation. Target accessed 18x more sensitive loan databases than Retail Banking cohort baseline.",
+              verdict: "Intentional Data Theft Pre-Resignation"
+            },
+            {
+              agent: "ForensicHunterAgent",
+              role: "Senior Forensic Threat Hunter",
+              thought: "Correlated multi-modal logs: Logon at 22:45 → Mass read customer_ssn_database.parquet → SanDisk Extreme PRO USB mounted (SN-EXT-9981) at 23:48 → 3.85 GB transferred → Encrypted ZIP sent to alice.personal.archive@proton.me. MITRE T1078, T1052, T1567.",
+              verdict: "Full Kill-Chain Corroborated"
+            },
+            {
+              agent: "AutonomousResponseAgent",
+              role: "Autonomous Incident Commander",
+              thought: "Executed Zero-Trust containment: Revoked Active Kerberos tokens (142ms), isolated host PC-RET-04 (310ms), restricted USB drivers via EDR. Drafted FinCEN SAR Form 111 for legal signoff.",
+              verdict: "Host Network Isolated & SAR Drafted"
+            }
+          ]
+        },
+        {
+          user_id: "USR_TRD_02",
+          employee_name: "Marcus Vance",
+          role: "Derivatives Trader",
+          department: "Trading & Markets",
+          workstation: "PC-TRD-02",
+          date: "2025-05-26",
+          hybrid_score: 95.8,
+          ueba_score: 94.0,
+          dl_score: 96.5,
+          threat_tier: "CRITICAL",
+          hr_note: "⚠️ Unhedged Trading Losses on Desk • High Risk Capital Market Actor",
+          financial_impact: "$8,500,000 (Unauthorized Derivatives Exposure)",
+          high_risk_drivers: [
+            "Abnormal Backup Terminal Used (PC-TRD-BACKUP-09, Z=6.1)",
+            "Off-Hours Login at 02:45 AM (Z=5.9)",
+            "Core Ledger Position Table Modification (Z=6.8)",
+            "Risk Limits VaR Config File Tampered (Z=5.5)"
+          ],
+          nexus_triggers: ["Off-Hours Abnormal Terminal Access", "Off-Hours Ledger/Log Manipulation"],
+          zscores: {
+            "After-Hours Logon": 5.9,
+            "Sensitive Files": 4.8,
+            "USB Volume": 0.0,
+            "External Email": 0.0,
+            "Ledger Override": 6.8,
+            "Abnormal PC": 6.1
+          },
+          dl_timeline: [0.021, 0.020, 0.019, 0.023, 0.021, 0.022, 0.028, 0.035, 0.25, 0.48, 0.62, 0.74],
+          agents: [
+            {
+              agent: "AlertTriageAgent",
+              role: "Senior Tier-1 Financial SOC Analyst",
+              thought: "High-priority alert triggered for Trading Desk. 02:45 AM logon from unassigned backup terminal. Immediate SOX Section 404 internal control breach.",
+              verdict: "P1_CRITICAL Rogue Trading Detected"
+            },
+            {
+              agent: "BehavioralProfilerAgent",
+              role: "UEBA Identity & Psychology Specialist",
+              thought: "Marcus Vance has had zero off-hours logins in past 6 months. Sudden extreme deviation to alter trading blotters indicates desperate attempt to hide rogue derivative deficit.",
+              verdict: "Extreme Anomaly: Financial Fraud Risk"
+            },
+            {
+              agent: "ForensicHunterAgent",
+              role: "Senior Forensic Threat Hunter",
+              thought: "Logon from PC-TRD-BACKUP-09 using NTLM fallback → Direct write locks on core_ledger_positions.db → Attempted override on risk_limits_var.conf. MITRE T1078, T1565.001, T1083.",
+              verdict: "Unauthorized Capital Limit Override"
+            },
+            {
+              agent: "AutonomousResponseAgent",
+              role: "Autonomous Incident Commander",
+              thought: "Instantly locked trading account #TRD-88192, revoked Bloomberg and FIX API session keys (88ms), dispatched emergency alert to Head of Market Risk and FINRA compliance officer.",
+              verdict: "Trading Authority Terminated"
+            }
+          ]
+        },
+        {
+          user_id: "USR_IT_01",
+          employee_name: "Devon Reed",
+          role: "Lead Database Administrator",
+          department: "Core IT & Infrastructure",
+          workstation: "PC-IT-01",
+          date: "2025-05-22",
+          hybrid_score: 91.0,
+          ueba_score: 87.5,
+          dl_score: 92.0,
+          threat_tier: "CRITICAL",
+          hr_note: "⚠️ Disciplinary Flag: Placed on Performance Improvement Plan (PIP)",
+          financial_impact: "$1,500,000 (SWIFT Infrastructure Compromise Risk)",
+          high_risk_drivers: [
+            "Lateral Elevation to SWIFT Gateway (PC-SWIFT-SRV-01, Z=5.9)",
+            "System Audit Log Deletion (winevt Logs, Z=6.5)",
+            "SWIFT Private Key Extraction (swift_wire_credentials.enc, Z=5.7)",
+            "Off-Hours 23:15 Session (Z=4.6)"
+          ],
+          nexus_triggers: ["Off-Hours Ledger/Log Manipulation", "Off-Hours Sensitive Data Access"],
+          zscores: {
+            "After-Hours Logon": 4.6,
+            "Sensitive Files": 5.7,
+            "USB Volume": 0.0,
+            "External Email": 0.0,
+            "Ledger Override": 6.5,
+            "Abnormal PC": 5.9
+          },
+          dl_timeline: [0.025, 0.024, 0.022, 0.026, 0.023, 0.025, 0.032, 0.045, 0.29, 0.41, 0.55, 0.68],
+          agents: [
+            {
+              agent: "AlertTriageAgent",
+              role: "Senior Tier-1 Financial SOC Analyst",
+              thought: "DBA Devon Reed accessed SWIFT messaging infrastructure at 23:15 and deleted audit logs. Severe violation of SWIFT CSP Control 2.1.",
+              verdict: "P1_CRITICAL Core Sabotage"
+            },
+            {
+              agent: "BehavioralProfilerAgent",
+              role: "UEBA Identity & Psychology Specialist",
+              thought: "Employee is under disciplinary review. Privileged access abuse matches CERT Sabotage profile: disgruntled systems admin targeting auditability.",
+              verdict: "High-Privilege Disgruntled Insider"
+            },
+            {
+              agent: "ForensicHunterAgent",
+              role: "Senior Forensic Threat Hunter",
+              thought: "Admin session opened to PC-SWIFT-SRV-01 → Deletion of db_transaction_audit.log → Staged swift_wire_credentials.enc in hidden staging directory. MITRE T1078, T1070.001, T1552.",
+              verdict: "Defense Evasion & Key Theft"
+            },
+            {
+              agent: "AutonomousResponseAgent",
+              role: "Autonomous Incident Commander",
+              thought: "Revoked root database tokens, isolated SWIFT terminal from core wire routing network, initiated cryptographic key rotation for SWIFT alliance gateway.",
+              verdict: "Root Revocation & Gateway Isolated"
+            }
+          ]
+        },
+        {
+          user_id: "USR_WLT_03",
+          employee_name: "Sophia Chen",
+          role: "VP Wealth Management",
+          department: "Wealth Management",
+          workstation: "PC-WLT-03",
+          date: "2025-05-21",
+          hybrid_score: 99.9,
+          ueba_score: 78.0,
+          dl_score: 81.5,
+          threat_tier: "CRITICAL",
+          hr_note: "⚠️ Unreported External Employment Talks • Senior Producer",
+          financial_impact: "$1,800,000 (Private Client AUM Defection Risk)",
+          high_risk_drivers: [
+            "Cloud Storage Upload Volume (850 MB to Mega.nz, Z=5.8)",
+            "Bulk HNW Client Portfolios Harvested (Z=5.1)",
+            "Client Tax Return Archives Accessed (Z=4.8)",
+            "HONEYPOT TRIGGERED: Q4_Executive_Bonuses_CONFIDENTIAL.xlsx"
+          ],
+          nexus_triggers: ["Sensitive Data Staging & Exfiltration Nexus", "Honeypot Trigger"],
+          zscores: {
+            "After-Hours Logon": 1.2,
+            "Sensitive Files": 5.1,
+            "USB Volume": 0.0,
+            "External Email": 0.0,
+            "Ledger Override": 0.0,
+            "Abnormal PC": 0.0
+          },
+          dl_timeline: [0.018, 0.021, 0.019, 0.022, 0.020, 0.024, 0.035, 0.12, 0.28, 0.39, 0.46, 0.52],
+          agents: [
+            {
+              agent: "AlertTriageAgent",
+              role: "Senior Tier-1 Financial SOC Analyst",
+              thought: "Unusual web traffic: 850 MB uploaded to cloud storage (Mega.nz). Cross-referencing against SEC Reg S-P client privacy rules.",
+              verdict: "P2_HIGH Exfiltration Detected"
+            },
+            {
+              agent: "BehavioralProfilerAgent",
+              role: "UEBA Identity & Psychology Specialist",
+              thought: "Client harvesting pattern aligns with wealth advisor poaching prior to lateral departure. Over 60 high-net-worth portfolio PDFs read in 35 minutes.",
+              verdict: "Competitive Client Poaching"
+            },
+            {
+              agent: "ForensicHunterAgent",
+              role: "Senior Forensic Threat Hunter",
+              thought: "HTTP POST multipart upload of hnw_client_family_trusts.pdf and offshore_asset_holdings_2025.xlsx to mega.nz cloud vault. MITRE T1005, T1567.002.",
+              verdict: "Cloud Storage Exfiltration"
+            },
+            {
+              agent: "ActiveDeceptionAgent",
+              role: "Senior Active Defense & Deception Engineer",
+              thought: "Evaluating deception strategy for USR_WLT_03. Current hybrid score is 79.2/100 (Ambiguous). Deployed decoy file 'Q4_Executive_Bonuses_CONFIDENTIAL.xlsx' to her private staging directory. [SIMULATION UPDATE] Target accessed and attempted to upload the decoy file! Malicious intent definitively confirmed.",
+              verdict: "HONEYPOT ACCESSED - Escalated to 99.9"
+            },
+            {
+              agent: "AutonomousResponseAgent",
+              role: "Autonomous Incident Commander",
+              thought: "Proxy rule triggered: blocked outbound connections to mega.nz and consumer cloud storage. Restricted workstation download permissions pending HR interview.",
+              verdict: "Cloud Uploads Blocked"
+            }
+          ]
+        }
+      ]
+    };
+
+    let currentIncidentIndex = 0;
+
+    // Render incidents list
+    function renderIncidents(filteredIncidents) {
+      const listEl = document.getElementById("incidentsList");
+      listEl.innerHTML = "";
+
+      filteredIncidents.forEach((inc, idx) => {
+        const isSelected = idx === currentIncidentIndex;
+        const div = document.createElement("div");
+        div.className = `p-3 rounded-lg border transition cursor-pointer ${
+          isSelected ? "bg-slate-800/90 border-rose-500/80 glow-rose" : "bg-slate-900/60 border-slate-800 hover:border-slate-700"
+        }`;
+        div.onclick = () => selectIncident(idx);
+
+        div.innerHTML = `
+          <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+              <span class="font-bold text-xs text-white">${inc.employee_name}</span>
+              <span class="text-[10px] font-mono text-slate-400">(${inc.user_id})</span>
+            </div>
+            <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold ${
+              inc.threat_tier === 'CRITICAL' ? 'bg-rose-500/20 text-rose-400 border border-rose-500/30' : 'bg-amber-500/20 text-amber-400 border border-amber-500/30'
+            }">${inc.threat_tier}</span>
+          </div>
+          <div class="text-[11px] text-slate-400 mt-1">${inc.role} • ${inc.department}</div>
+          <div class="text-[10px] text-slate-500 mt-1 font-mono flex items-center justify-between">
+            <span>Score: <strong class="text-rose-400 font-bold">${inc.hybrid_score}</strong></span>
+            <span>Date: ${inc.date}</span>
+          </div>
+        `;
+        listEl.appendChild(div);
+      });
+    }
+
+    function selectIncident(idx) {
+      currentIncidentIndex = idx;
+      renderIncidents(THREAT_DATA.incidents);
+      loadIncidentDetails(THREAT_DATA.incidents[idx]);
+    }
+
+    function loadIncidentDetails(inc) {
+      document.getElementById("targetName").innerText = inc.employee_name;
+      document.getElementById("targetIdBadge").innerText = inc.user_id;
+      document.getElementById("targetTierBadge").innerText = inc.threat_tier;
+      document.getElementById("targetRole").innerText = inc.role;
+      document.getElementById("targetDept").innerText = inc.department;
+      document.getElementById("targetWorkstation").innerText = inc.workstation;
+      document.getElementById("targetHrNote").innerText = inc.hr_note;
+      document.getElementById("targetHybridScore").innerText = inc.hybrid_score;
+      document.getElementById("targetUebaScore").innerText = inc.ueba_score;
+      document.getElementById("targetDlScore").innerText = inc.dl_score;
+
+      // Render Agent Transcript
+      const transcriptEl = document.getElementById("agentTranscriptFeed");
+      transcriptEl.innerHTML = "";
+      inc.agents.forEach(ag => {
+        const card = document.createElement("div");
+        card.className = "p-3 rounded-lg bg-slate-900/80 border border-slate-800 space-y-1.5";
+        card.innerHTML = `
+          <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+              <span class="font-bold text-xs text-cyan-300 font-mono">● ${ag.agent}</span>
+              <span class="text-[10px] text-slate-400">(${ag.role})</span>
+            </div>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-emerald-400 border border-slate-700">${ag.verdict}</span>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed font-sans">${ag.thought}</p>
+        `;
+        transcriptEl.appendChild(card);
+      });
+
+      // Render Containment Orders
+      const contEl = document.getElementById("containmentOrdersContainer");
+      contEl.innerHTML = `
+        <div class="p-2.5 rounded bg-slate-900 border border-slate-800">
+          <div class="font-bold text-rose-400 flex items-center justify-between">
+            <span>Kerberos Session Kill</span>
+            <span class="text-[10px] text-emerald-400 font-mono">EXECUTED (142ms)</span>
+          </div>
+          <div class="text-[11px] text-slate-400 mt-1">Revoked tokens on Active Directory DC-01</div>
+        </div>
+        <div class="p-2.5 rounded bg-slate-900 border border-slate-800">
+          <div class="font-bold text-amber-400 flex items-center justify-between">
+            <span>Workstation Isolation</span>
+            <span class="text-[10px] text-emerald-400 font-mono">EXECUTED (310ms)</span>
+          </div>
+          <div class="text-[11px] text-slate-400 mt-1">Network quarantined via CrowdStrike EDR</div>
+        </div>
+        <div class="p-2.5 rounded bg-slate-900 border border-slate-800">
+          <div class="font-bold text-indigo-400 flex items-center justify-between">
+            <span>Core Banking Gate Freeze</span>
+            <span class="text-[10px] text-emerald-400 font-mono">EXECUTED (205ms)</span>
+          </div>
+          <div class="text-[11px] text-slate-400 mt-1">Ledger & SWIFT privileges suspended</div>
+        </div>
+      `;
+
+      // Update SAR modal elements
+      document.getElementById("sarSubject").innerText = `${inc.employee_name} (${inc.user_id})`;
+      document.getElementById("sarExposure").innerText = inc.financial_impact;
+      document.getElementById("sarNarrative").innerText = `On ${inc.date}, Meridian Bank Autonomous SOC detected an extreme insider threat event initiated by ${inc.employee_name} (${inc.role}, ${inc.department}). Hybrid threat score reached ${inc.hybrid_score}/100 with confirmed UEBA baseline drift and Deep Learning sequence reconstruction anomaly. Multi-modal correlation confirmed: ${inc.high_risk_drivers.join('; ')}. Immediate containment executed under GLBA 501(b) and SOX 404.`;
+
+      // Draw Charts
+      drawUebaChart(inc.zscores);
+      drawDlChart(inc.dl_timeline);
+    }
+
+    // Canvas Bar Chart for UEBA Z-Scores
+    function drawUebaChart(zscores) {
+      const canvas = document.getElementById("uebaChart");
+      const ctx = canvas.getContext("2d");
+      const w = canvas.width = canvas.parentElement.clientWidth - 32;
+      const h = canvas.height = 160;
+
+      ctx.clearRect(0, 0, w, h);
+
+      const keys = Object.keys(zscores);
+      const values = Object.values(zscores);
+      const maxVal = 7.0;
+      const barWidth = (w / keys.length) - 14;
+
+      // Draw threshold line at 3.0 sigma
+      const threshY = h - 25 - ((3.0 / maxVal) * (h - 45));
+      ctx.strokeStyle = "rgba(244, 63, 94, 0.4)";
+      ctx.setLineDash([4, 4]);
+      ctx.beginPath();
+      ctx.moveTo(0, threshY);
+      ctx.lineTo(w, threshY);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      keys.forEach((key, i) => {
+        const val = values[i];
+        const barH = (val / maxVal) * (h - 45);
+        const x = i * (barWidth + 14) + 8;
+        const y = h - 25 - barH;
+
+        // Gradient bar
+        const grad = ctx.createLinearGradient(0, y, 0, h - 25);
+        if (val >= 3.0) {
+          grad.addColorStop(0, "#f43f5e");
+          grad.addColorStop(1, "rgba(244, 63, 94, 0.2)");
+        } else {
+          grad.addColorStop(0, "#06b6d4");
+          grad.addColorStop(1, "rgba(6, 182, 212, 0.2)");
+        }
+
+        ctx.fillStyle = grad;
+        ctx.fillRect(x, y, barWidth, barH);
+
+        // Value text
+        ctx.fillStyle = val >= 3.0 ? "#f43f5e" : "#38bdf8";
+        ctx.font = "bold 10px monospace";
+        ctx.textAlign = "center";
+        ctx.fillText(val.toFixed(1) + "σ", x + (barWidth / 2), y - 4);
+
+        // Label text
+        ctx.fillStyle = "#94a3b8";
+        ctx.font = "9px sans-serif";
+        ctx.textAlign = "center";
+        const shortKey = key.split(" ")[0];
+        ctx.fillText(shortKey, x + (barWidth / 2), h - 10);
+      });
+    }
+
+    // Canvas Line Chart for Deep Learning Reconstruction Error
+    function drawDlChart(timeline) {
+      const canvas = document.getElementById("dlChart");
+      const ctx = canvas.getContext("2d");
+      const w = canvas.width = canvas.parentElement.clientWidth - 32;
+      const h = canvas.height = 160;
+
+      ctx.clearRect(0, 0, w, h);
+
+      const maxVal = Math.max(...timeline, 0.8);
+      const points = timeline.map((v, i) => {
+        const x = (i / (timeline.length - 1)) * (w - 20) + 10;
+        const y = h - 25 - ((v / maxVal) * (h - 45));
+        return { x, y, v };
+      });
+
+      // Draw baseline normal threshold
+      const threshY = h - 25 - ((0.034 / maxVal) * (h - 45));
+      ctx.strokeStyle = "rgba(6, 182, 212, 0.5)";
+      ctx.setLineDash([4, 4]);
+      ctx.beginPath();
+      ctx.moveTo(0, threshY);
+      ctx.lineTo(w, threshY);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Draw filled area under curve
+      ctx.beginPath();
+      ctx.moveTo(points[0].x, h - 25);
+      points.forEach(p => ctx.lineTo(p.x, p.y));
+      ctx.lineTo(points[points.length - 1].x, h - 25);
+      const grad = ctx.createLinearGradient(0, 0, 0, h - 25);
+      grad.addColorStop(0, "rgba(244, 63, 94, 0.35)");
+      grad.addColorStop(1, "rgba(244, 63, 94, 0.0)");
+      ctx.fillStyle = grad;
+      ctx.fill();
+
+      // Draw path line
+      ctx.beginPath();
+      ctx.moveTo(points[0].x, points[0].y);
+      points.forEach(p => ctx.lineTo(p.x, p.y));
+      ctx.strokeStyle = "#f43f5e";
+      ctx.lineWidth = 2.5;
+      ctx.stroke();
+
+      // Points
+      points.forEach(p => {
+        ctx.fillStyle = p.v > 0.1 ? "#f43f5e" : "#06b6d4";
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 3.5, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      // Bottom timeline days
+      ctx.fillStyle = "#64748b";
+      ctx.font = "9px monospace";
+      ctx.textAlign = "left";
+      ctx.fillText("Day 1", 10, h - 10);
+      ctx.textAlign = "center";
+      ctx.fillText("Day 18 (Baseline)", w / 2, h - 10);
+      ctx.textAlign = "right";
+      ctx.fillText("Day 30 (Incident)", w - 10, h - 10);
+    }
+
+    function filterIncidents(dept) {
+      document.querySelectorAll(".filter-btn").forEach(b => {
+        b.className = "filter-btn px-2.5 py-1 rounded bg-slate-900 text-slate-400 hover:text-slate-200 whitespace-nowrap";
+      });
+      event.target.className = "filter-btn px-2.5 py-1 rounded bg-slate-800 text-cyan-400 font-medium whitespace-nowrap";
+
+      if (dept === "all") {
+        renderIncidents(THREAT_DATA.incidents);
+      } else {
+        const filtered = THREAT_DATA.incidents.filter(i => i.department === dept);
+        renderIncidents(filtered);
+      }
+    }
+
+    function triggerContainment(actionName) {
+      showToast(`Directive Executed: ${actionName}`);
+    }
+
+    function dismissIncident() {
+      showToast("Incident archived into regulatory audit trail.");
+    }
+
+    function showSarModal() {
+      document.getElementById("sarModal").classList.remove("hidden");
+    }
+
+    function closeSarModal() {
+      document.getElementById("sarModal").classList.add("hidden");
+    }
+
+    function transmitSar() {
+      closeSarModal();
+      showToast("FinCEN Form 111 Signed & Transmitted via BSA E-Filing Gateway.");
+    }
+
+    function refreshData() {
+      showToast("Re-scoring UEBA Baselines & Deep Sequence Autoencoders...");
+      setTimeout(() => {
+        selectIncident(currentIncidentIndex);
+      }, 500);
+    }
+
+    // Real CERT Dataset Samples for In-Browser Inspector
+    const CERT_DATASET_PREVIEW = {
+      device: {
+        headers: ["Event ID", "Timestamp", "User ID", "Workstation", "Activity", "Device Model", "Data (MB)"],
+        rows: [
+          ["EVT-DEV-10907", "2025-05-05 14:20:00", "USR_IT_05", "PC-IT-05", "Connect", "Kingston IronKey (Approved)", "120.0 MB"],
+          ["EVT-DEV-15143", "2025-05-23 23:48:00", "USR_RET_04", "PC-RET-04", "Connect", "SanDisk Extreme PRO (Unauthorized)", "3850.5 MB"],
+          ["EVT-DEV-15144", "2025-05-24 00:06:00", "USR_RET_04", "PC-RET-04", "Disconnect", "SanDisk Extreme PRO", "0.0 MB"],
+          ["EVT-DEV-15431", "2025-05-24 23:48:00", "USR_RET_04", "PC-RET-04", "Connect", "SanDisk Extreme PRO", "3850.5 MB"],
+          ["EVT-DEV-15502", "2025-05-25 23:48:00", "USR_RET_04", "PC-RET-04", "Connect", "SanDisk Extreme PRO", "3850.5 MB"],
+          ["EVT-DEV-15597", "2025-05-26 23:48:00", "USR_RET_04", "PC-RET-04", "Connect", "SanDisk Extreme PRO", "3850.5 MB"]
+        ]
+      },
+      logon: {
+        headers: ["Event ID", "Timestamp", "User ID", "Workstation", "Activity", "Auth Method", "Source IP"],
+        rows: [
+          ["EVT-LGN-10000", "2025-05-01 08:35:12", "USR_RET_01", "PC-RET-01", "Logon", "Kerberos", "10.20.4.15"],
+          ["EVT-LGN-14502", "2025-05-22 23:15:00", "USR_IT_01", "PC-SWIFT-SRV-01", "Logon", "Admin-Elevation", "10.20.4.15"],
+          ["EVT-LGN-15320", "2025-05-24 02:45:10", "USR_TRD_02", "PC-TRD-BACKUP-09", "Logon", "NTLM-Fallback", "10.20.99.144"],
+          ["EVT-LGN-15480", "2025-05-25 02:45:22", "USR_TRD_02", "PC-TRD-BACKUP-09", "Logon", "NTLM-Fallback", "10.20.99.144"],
+          ["EVT-LGN-15560", "2025-05-26 02:45:05", "USR_TRD_02", "PC-TRD-BACKUP-09", "Logon", "NTLM-Fallback", "10.20.99.144"]
+        ]
+      },
+      file: {
+        headers: ["Event ID", "Timestamp", "User ID", "Activity", "File Name", "Sensitivity", "Size"],
+        rows: [
+          ["EVT-FIL-10022", "2025-05-01 10:15:00", "USR_RET_01", "Read", "retail_ops_manual.pdf", "Internal", "42 KB"],
+          ["EVT-FIL-15140", "2025-05-23 23:10:00", "USR_RET_04", "Copy", "customer_ssn_database.parquet", "Confidential PII", "245 MB"],
+          ["EVT-FIL-15141", "2025-05-23 23:25:00", "USR_RET_04", "Copy", "kyc_passports_2025.zip", "Confidential PII", "180 MB"],
+          ["EVT-FIL-15325", "2025-05-24 03:05:00", "USR_TRD_02", "Modify", "core_ledger_positions.db", "Banking-Secret", "15 MB"],
+          ["EVT-FIL-15326", "2025-05-24 03:15:00", "USR_TRD_02", "Modify", "risk_limits_var.conf", "Banking-Secret", "2 KB"],
+          ["EVT-FIL-14510", "2025-05-22 23:45:00", "USR_IT_01", "Delete", "db_transaction_audit.log", "Audit Trail", "0 B"]
+        ]
+      },
+      email: {
+        headers: ["Event ID", "Timestamp", "User ID", "Sender", "Recipient", "Subject", "Attachments"],
+        rows: [
+          ["EVT-EML-10045", "2025-05-01 11:20:00", "USR_RET_01", "internal@meridian-bank.com", "colleague@meridian-bank.com", "Operations Sync", "None"],
+          ["EVT-EML-15150", "2025-05-23 23:58:00", "USR_RET_04", "alice.walker@meridian-bank.com", "alice.personal.archive@proton.me", "Personal Backup Archives", "customer_ssn.zip.gpg"]
+        ]
+      }
+    };
+
+    function showDatasetModal() {
+      document.getElementById("datasetModal").classList.remove("hidden");
+      renderDatasetTab("device");
+    }
+
+    function closeDatasetModal() {
+      document.getElementById("datasetModal").classList.add("hidden");
+    }
+
+    function renderDatasetTab(tabName) {
+      ["device", "logon", "file", "email"].forEach(t => {
+        const btn = document.getElementById("tab-" + t);
+        if (btn) {
+          if (t === tabName) {
+            btn.className = "px-3 py-1.5 rounded bg-cyan-600 text-white font-semibold";
+          } else {
+            btn.className = "px-3 py-1.5 rounded bg-slate-800 text-slate-300 hover:text-white";
+          }
+        }
+      });
+
+      const data = CERT_DATASET_PREVIEW[tabName];
+      if (!data) return;
+
+      const thead = document.getElementById("datasetThead");
+      thead.innerHTML = "<tr>" + data.headers.map(h => `<th class="py-1.5 px-2">${h}</th>`).join("") + "</tr>";
+
+      const tbody = document.getElementById("datasetTbody");
+      tbody.innerHTML = data.rows.map(row => {
+        const isSuspicious = row.some(cell => cell.includes("Unauthorized") || cell.includes("Proton") || cell.includes("Modify") || cell.includes("Delete") || cell.includes("02:45"));
+        const rowClass = isSuspicious ? "bg-rose-950/20 text-rose-300" : "hover:bg-slate-900";
+        return `<tr class="${rowClass}">` + row.map(c => `<td class="py-1 px-2 whitespace-nowrap">${c}</td>`).join("") + "</tr>";
+      }).join("");
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById("toast");
+      document.getElementById("toastMsg").innerText = msg;
+      toast.classList.remove("hidden");
+      setTimeout(() => toast.classList.add("hidden"), 3000);
+    }
+
+    // ==========================================
+    // SOURCE CODE EXPLORER & TOGGLE BAR LOGIC
+    // ==========================================
+    const CODE_MODULES = [
+      { name: "pipeline.py", path: "pipeline.py", category: "Pipeline", lines: 318, size: "10.3 KB", desc: "Master Pipeline: Ingestion, UEBA baseline, Deep Learning, & SOC Agent dispatch" },
+      { name: "soc_agents.py", path: "agents/soc_agents.py", category: "Agents", lines: 580, size: "21.9 KB", desc: "Autonomous SOC Agents: Alert Triage, Behavioral Profiler, Threat Hunter, & Response" },
+      { name: "base_agent.py", path: "agents/base_agent.py", category: "Agents", lines: 75, size: "1.6 KB", desc: "OODA Loop (Observe, Orient, Decide, Act) Framework & Agent Messaging Protocol" },
+      { name: "deep_anomaly_detector.py", path: "models/deep_anomaly_detector.py", category: "Models", lines: 310, size: "11.0 KB", desc: "Bi-LSTM Sequence Autoencoder for 30-day temporal reconstruction loss" },
+      { name: "hybrid_scorer.py", path: "models/hybrid_scorer.py", category: "Models", lines: 165, size: "5.1 KB", desc: "Multi-model Risk Fusion & Regulatory Impact Compliance Scorer" },
+      { name: "engine.py", path: "ueba/engine.py", category: "UEBA", lines: 195, size: "6.2 KB", desc: "UEBA Engine: Peer group cohort baseline & multivariate Z-score computation" },
+      { name: "features.py", path: "ueba/features.py", category: "UEBA", lines: 180, size: "6.0 KB", desc: "12-Dimensional Behavioral Feature Extractor from daily multi-modal logs" },
+      { name: "banking_cert_generator.py", path: "data/banking_cert_generator.py", category: "Data", lines: 690, size: "28.3 KB", desc: "Enterprise CERT Multi-Modal Log Generator with planted ground-truth threats" },
+      { name: "cert_schema.py", path: "data/cert_schema.py", category: "Data", lines: 235, size: "7.7 KB", desc: "Standard CERT Log Event Schemas & CSV dataset exporter" },
+      { name: "server.py", path: "server.py", category: "Server", lines: 182, size: "9.2 KB", desc: "Interactive Local Financial SOC Web Server with strict MIME controls & REST APIs" },
+      { name: "test_system.py", path: "tests/test_system.py", category: "Tests", lines: 240, size: "7.9 KB", desc: "Comprehensive Automated Verification & Detection Test Suite" }
+    ];
+
+    let currentCodeFile = "pipeline.py";
+    let rawCodeCache = {};
+    let currentCategoryFilter = "all";
+    let isLineWrapActive = false;
+    let isCodePanelVisible = true;
+    let currentViewMode = "dashboard";
+
+    function initCodeExplorer() {
+      // Attempt to load live file list from server if available
+      fetch("/api/code/files")
+        .then(r => r.json())
+        .then(files => {
+          renderCodeToggleBar(files);
+          selectCodeFile(files[0] ? files[0].path : "pipeline.py");
+        })
+        .catch(() => {
+          // Fallback to embedded module list
+          renderCodeToggleBar(CODE_MODULES);
+          selectCodeFile("pipeline.py");
+        });
+    }
+
+    function renderCodeToggleBar(files) {
+      const toggleBar = document.getElementById("codeToggleBar");
+      if (!toggleBar) return;
+      toggleBar.innerHTML = "";
+
+      const filtered = currentCategoryFilter === "all" 
+        ? files 
+        : files.filter(f => f.category === currentCategoryFilter);
+
+      filtered.forEach(file => {
+        const isSelected = file.path === currentCodeFile;
+        const btn = document.createElement("button");
+        btn.id = "code-tab-" + file.name.replace(/[^a-zA-Z0-9]/g, "_");
+        btn.onclick = () => selectCodeFile(file.path);
+        btn.className = `toggle-bar-btn px-3 py-1.5 rounded-lg border text-xs font-mono font-medium flex items-center space-x-1.5 whitespace-nowrap cursor-pointer ${
+          isSelected ? "active" : ""
+        }`;
+
+        const icon = file.category === "Agents" ? "🤖" :
+                     file.category === "Models" ? "🧠" :
+                     file.category === "UEBA" ? "📈" :
+                     file.category === "Data" ? "🗄️" :
+                     file.category === "Server" ? "🌐" :
+                     file.category === "Tests" ? "🧪" : "⚡";
+
+        btn.innerHTML = `
+          <span>${icon}</span>
+          <span class="font-semibold">${file.name}</span>
+          <span class="text-[10px] opacity-75">(${file.lines || file.size || 'PY'})</span>
+        `;
+        toggleBar.appendChild(btn);
+      });
+    }
+
+    function filterCodeCategory(category) {
+      currentCategoryFilter = category;
+      document.querySelectorAll(".code-cat-btn").forEach(b => {
+        b.className = "code-cat-btn px-2.5 py-1 rounded bg-slate-900 text-slate-400 hover:text-slate-200 border border-slate-800";
+      });
+      const activeBtn = document.getElementById("catBtn-" + category);
+      if (activeBtn) {
+        activeBtn.className = "code-cat-btn px-2.5 py-1 rounded bg-cyan-600 text-white font-medium";
+      }
+
+      const files = CODE_MODULES;
+      renderCodeToggleBar(files);
+    }
+
+    function selectCodeFile(filePath) {
+      currentCodeFile = filePath;
+      const fileMeta = CODE_MODULES.find(f => f.path === filePath) || {
+        name: filePath.split("/").pop(),
+        path: filePath,
+        category: "Python",
+        desc: "Source Module",
+        lines: 0,
+        size: "N/A"
+      };
+
+      // Update banner
+      document.getElementById("activeFileIndicator").innerText = fileMeta.name;
+      document.getElementById("fileMetaPath").innerText = fileMeta.path;
+      document.getElementById("fileMetaCategory").innerText = fileMeta.category;
+      document.getElementById("fileMetaDesc").innerText = fileMeta.desc;
+      if (fileMeta.lines) document.getElementById("fileMetaLines").innerText = fileMeta.lines;
+      if (fileMeta.size) document.getElementById("fileMetaSize").innerText = fileMeta.size;
+
+      // Update toggle bar buttons active state
+      document.querySelectorAll(".toggle-bar-btn").forEach(btn => {
+        btn.classList.remove("active");
+      });
+      const activeTabId = "code-tab-" + fileMeta.name.replace(/[^a-zA-Z0-9]/g, "_");
+      const activeTab = document.getElementById(activeTabId);
+      if (activeTab) activeTab.classList.add("active");
+
+      // Check cache or fetch
+      if (rawCodeCache[filePath]) {
+        renderCodeContent(rawCodeCache[filePath]);
+        return;
+      }
+
+      document.getElementById("codeText").innerText = `Fetching ${filePath} from server...`;
+      fetch(`/api/code/content?file=${encodeURIComponent(filePath)}`)
+        .then(r => {
+          if (!r.ok) throw new Error("Status " + r.status);
+          return r.json();
+        })
+        .then(data => {
+          rawCodeCache[filePath] = data.code;
+          document.getElementById("fileMetaLines").innerText = data.lines;
+          document.getElementById("fileMetaSize").innerText = (data.size / 1024).toFixed(1) + " KB";
+          renderCodeContent(data.code);
+        })
+        .catch(err => {
+          const fallbackMsg = `# Unable to fetch live file over API (${err.message}).\n# Ensure server.py is running on http://localhost:8989\n\n"""\nModule: ${fileMeta.path}\nCategory: ${fileMeta.category}\nDescription: ${fileMeta.desc}\n"""\n\nimport os\nimport sys\n\nprint("Connected to Meridian Bank UEBA & Agentic Cyber SOC Platform")\n`;
+          renderCodeContent(fallbackMsg);
+        });
+    }
+
+    function escapeHtml(str) {
+      return str
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+    }
+
+    function highlightPython(code) {
+  const lines = code.split("\n");
+  const highlightedLines = lines.map(line => {
+    let escaped = escapeHtml(line);
+
+    // Separate comment
+    let commentHtml = "";
+    const commentIdx = escaped.indexOf("#");
+    if (commentIdx !== -1) {
+      commentHtml = '<span class="token-comment">' + escaped.slice(commentIdx) + '</span>';
+      escaped = escaped.slice(0, commentIdx);
+    }
+
+    // Stash tokens so replacements never corrupt inner span classes
+    const tokens = [];
+    const stash = function(html) {
+      const id = "___TOK_" + tokens.length + "___";
+      tokens.push({ id: id, html: html });
+      return id;
+    };
+
+    // 1. Strings
+    escaped = escaped.replace(/("""[\s\S]*?"""|'''[\s\S]*?'''|"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*')/g, function(m) {
+      return stash('<span class="token-string">' + m + '</span>');
+    });
+
+    // 2. Decorators
+    escaped = escaped.replace(/(@\w+)/g, function(m) {
+      return stash('<span class="token-decorator">' + m + '</span>');
+    });
+
+    // 3. Keywords
+    const keywords = ["def", "class", "import", "from", "return", "if", "elif", "else", "for", "while", "try", "except", "finally", "with", "as", "in", "is", "not", "and", "or", "lambda", "raise", "yield", "pass", "break", "continue", "async", "await", "global", "nonlocal", "assert"];
+    const kwRegex = new RegExp("\\b(" + keywords.join("|") + ")\\b", "g");
+    escaped = escaped.replace(kwRegex, function(m) {
+      return stash('<span class="token-keyword">' + m + '</span>');
+    });
+
+    // 4. Built-ins
+    const builtins = ["self", "cls", "None", "True", "False", "print", "len", "range", "str", "int", "float", "list", "dict", "set", "tuple", "bool", "super", "enumerate", "zip", "open"];
+    const biRegex = new RegExp("\\b(" + builtins.join("|") + ")\\b", "g");
+    escaped = escaped.replace(biRegex, function(m) {
+      return stash('<span class="token-builtin">' + m + '</span>');
+    });
+
+    // 5. Numbers
+    escaped = escaped.replace(/\b(\d+(\.\d+)?)\b/g, function(m) {
+      return stash('<span class="token-number">' + m + '</span>');
+    });
+
+    // Restore stashed tokens cleanly
+    for (let i = tokens.length - 1; i >= 0; i--) {
+      escaped = escaped.replace(tokens[i].id, tokens[i].html);
+    }
+
+    return escaped + commentHtml;
+  });
+
+  return highlightedLines.join("\n");
+}
+
+
+    function renderCodeContent(rawCode) {
+      const lines = rawCode.split("\n");
+      const lineCount = lines.length;
+
+      // Line numbers gutter
+      const lineGutter = document.getElementById("codeLineNumbers");
+      lineGutter.innerHTML = Array.from({ length: lineCount }, (_, i) => `<div>${i + 1}</div>`).join("");
+
+      // Code text
+      const codeEl = document.getElementById("codeText");
+      codeEl.innerHTML = highlightPython(rawCode);
+
+      // Scroll code viewer to top
+      document.getElementById("codeContainer").scrollTop = 0;
+    }
+
+    function copyCurrentCode() {
+      const code = rawCodeCache[currentCodeFile] || document.getElementById("codeText").innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        const textEl = document.getElementById("copyCodeText");
+        const iconEl = document.getElementById("copyCodeIcon");
+        textEl.innerText = "✓ Copied!";
+        iconEl.innerText = "✓";
+        setTimeout(() => {
+          textEl.innerText = "Copy Code";
+          iconEl.innerText = "📋";
+        }, 2000);
+        showToast(`Copied ${currentCodeFile} to clipboard`);
+      });
+    }
+
+    function downloadCurrentCode() {
+      const code = rawCodeCache[currentCodeFile] || document.getElementById("codeText").innerText;
+      const blob = new Blob([code], { type: "text/x-python" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = currentCodeFile.split("/").pop();
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast(`Downloaded ${a.download}`);
+    }
+
+    function toggleLineWrap() {
+      isLineWrapActive = !isLineWrapActive;
+      const pre = document.getElementById("codePre");
+      const btn = document.getElementById("lineWrapBtn");
+      if (isLineWrapActive) {
+        pre.classList.remove("whitespace-pre");
+        pre.classList.add("whitespace-pre-wrap");
+        btn.innerText = "Wrap: ON";
+        btn.classList.add("text-cyan-400");
+      } else {
+        pre.classList.remove("whitespace-pre-wrap");
+        pre.classList.add("whitespace-pre");
+        btn.innerText = "Wrap: OFF";
+        btn.classList.remove("text-cyan-400");
+      }
+    }
+
+    function searchInCode() {
+      const q = document.getElementById("codeSearchInput").value.trim().toLowerCase();
+      const code = rawCodeCache[currentCodeFile] || "";
+      if (!code) return;
+
+      if (!q) {
+        renderCodeContent(code);
+        return;
+      }
+
+      const lines = code.split("\n");
+      const matchedIndices = [];
+      lines.forEach((line, idx) => {
+        if (line.toLowerCase().includes(q)) {
+          matchedIndices.push(idx);
+        }
+      });
+
+      // Highlight matching lines
+      const highlighted = lines.map((line, idx) => {
+        const isMatch = matchedIndices.includes(idx);
+        const escaped = escapeHtml(line);
+        if (isMatch) {
+          return `<span class="code-line-highlight">${highlightTokens(escaped)}</span>`;
+        }
+        return highlightTokens(escaped);
+      }).join("\n");
+
+      document.getElementById("codeText").innerHTML = highlighted;
+      showToast(`Found ${matchedIndices.length} matches for "${q}"`);
+    }
+
+    function switchView(mode) {
+      currentViewMode = mode;
+      const tc = document.getElementById("threatConsoleSection");
+      const ce = document.getElementById("codeExplorerSection");
+      const btnDash = document.getElementById("viewBtnDashboard");
+      const btnCode = document.getElementById("viewBtnCode");
+      const btnSplit = document.getElementById("viewBtnSplit");
+
+      [btnDash, btnCode, btnSplit].forEach(b => {
+        b.className = "px-2.5 py-1 rounded text-slate-400 hover:text-white font-semibold flex items-center space-x-1 transition";
+      });
+
+      if (mode === "dashboard") {
+        btnDash.className = "px-2.5 py-1 rounded bg-cyan-600 text-white font-semibold flex items-center space-x-1 transition";
+        tc.classList.remove("hidden");
+        ce.classList.add("hidden");
+        updateCodeToggleBadge(false);
+      } else if (mode === "code") {
+        btnCode.className = "px-2.5 py-1 rounded bg-cyan-600 text-white font-semibold flex items-center space-x-1 transition";
+        tc.classList.add("hidden");
+        ce.classList.remove("hidden");
+        updateCodeToggleBadge(true);
+      } else if (mode === "split") {
+        btnSplit.className = "px-2.5 py-1 rounded bg-cyan-600 text-white font-semibold flex items-center space-x-1 transition";
+        tc.classList.remove("hidden");
+        ce.classList.remove("hidden");
+        updateCodeToggleBadge(true);
+      }
+    }
+
+    function toggleCodePanel() {
+      const ce = document.getElementById("codeExplorerSection");
+      const isHidden = ce.classList.contains("hidden");
+      if (isHidden) {
+        ce.classList.remove("hidden");
+        updateCodeToggleBadge(true);
+        showToast("Code Explorer: Visible");
+      } else {
+        ce.classList.add("hidden");
+        updateCodeToggleBadge(false);
+        showToast("Code Explorer: Hidden");
+      }
+    }
+
+    function updateCodeToggleBadge(visible) {
+      const badge = document.getElementById("codeToggleBadge");
+      if (badge) {
+        badge.innerText = visible ? "VISIBLE" : "HIDDEN";
+        badge.className = visible 
+          ? "px-1.5 py-0.2 rounded bg-cyan-500/20 text-cyan-300 text-[10px] font-mono"
+          : "px-1.5 py-0.2 rounded bg-slate-800 text-slate-400 text-[10px] font-mono";
+      }
+    }
+
+    // Initialize on load
+    window.addEventListener("DOMContentLoaded", () => {
+      renderIncidents(THREAT_DATA.incidents);
+      loadIncidentDetails(THREAT_DATA.incidents[0]);
+      initCodeExplorer();
+      // By default open in split view or visible mode so the code toggle bar is immediately prominent!
+      switchView("dashboard");
+    });
+
+    window.addEventListener("resize", () => {
+      if (THREAT_DATA.incidents[currentIncidentIndex]) {
+        drawUebaChart(THREAT_DATA.incidents[currentIncidentIndex].zscores);
+        drawDlChart(THREAT_DATA.incidents[currentIncidentIndex].dl_timeline);
+      }
+    });
+    // =========================================================================
+    // HIGH-PERFORMANCE LIVE SOC ALERT SIMULATOR & AUDIO SYNTHESIZER
+    // =========================================================================
+    let alertAudioEnabled = true;
+    let audioCtx = null;
+    let currentLiveAlertScenario = 0;
+
+    const LIVE_ALERT_SCENARIOS = [
+      {
+        id: "ALT-2026-FIN-08492",
+        title: "Bulk Customer PII Exfiltration Over Removable Media",
+        user_id: "USR_RET_04",
+        name: "Devon Reed",
+        role: "Credit Analyst",
+        department: "Retail Banking",
+        terminal: "PC-RET-044 (IP: 10.14.2.88)",
+        hr: "⚠️ Active Flight Risk: 30-Day Resignation Notice (2026-05-31)",
+        severity: "P1_CRITICAL (99.9/100)",
+        latency: "142.6 ms",
+        zscore: "+18.4σ",
+        recon_loss: "0.510 MSE",
+        exposure: "$3,506,250",
+        honeypot: "TOUCH CONFIRMED (Q4_Client_Tax_Records.xlsx)",
+        mitre: ["T1052.001 Exfiltration Over USB", "T1078 Valid Accounts", "T1048 Exfil Over Protocol"],
+        ooda: [
+          { time: "00:00.012", agent: "AlertTriageAgent", stage: "OBSERVE", text: "Ingested anomalous weekend telemetry. 02:14 AM logon detected. Verified IT maintenance calendar: No approved maintenance scheduled. Escalated to P1_CRITICAL." },
+          { time: "00:00.045", agent: "BehavioralProfilerAgent", stage: "ORIENT", text: "12D behavioral vector indicates +18.4σ volumetric drift over Retail peer cohort. Active Directory cross-reference flags pending resignation. Nexus multiplier triggered." },
+          { time: "00:00.098", agent: "ActiveDeceptionAgent", stage: "DECIDE", text: "Dynamic honeypot 'Q4_Client_Tax_Records.xlsx' read event intercepted within 400ms! Malicious intent mathematically corroborated. Risk elevated to 99.9." },
+          { time: "00:00.142", agent: "AutonomousResponseAgent", stage: "ACT", text: "Executing Zero-Trust Containment: Kerberos TGT revoked (142ms), Endpoint isolated (310ms), Ledger write locks placed (205ms), FinCEN SAR Form 111 auto-drafted (680ms)." }
+        ]
+      },
+      {
+        id: "ALT-2026-FIN-09104",
+        title: "Unauthorized Ledger Write Locks & VaR Limit Tampering",
+        user_id: "USR_TRD_02",
+        name: "Marcus Vance",
+        role: "Derivatives Trader",
+        department: "Trading & Markets",
+        terminal: "PC-TRD-BACKUP-09 (Unassigned Terminal)",
+        hr: "⚠️ High Unhedged Risk: Trading Exposure Deficit Notice",
+        severity: "P1_CRITICAL (95.8/100)",
+        latency: "165.2 ms",
+        zscore: "+14.2σ",
+        recon_loss: "0.740 MSE",
+        exposure: "$8,500,000",
+        honeypot: "DECOY BYPASS ATTEMPT DETECTED",
+        mitre: ["T1565.001 Stored Data Manipulation", "T1078 Valid Accounts", "T1562 Impair Defenses"],
+        ooda: [
+          { time: "00:00.015", agent: "AlertTriageAgent", stage: "OBSERVE", text: "02:45 AM authentication from unassigned backup console PC-TRD-BACKUP-09. Triggering SOX § 404 internal control violation." },
+          { time: "00:00.052", agent: "BehavioralProfilerAgent", stage: "ORIENT", text: "Deep sequence autoencoder shows catastrophic reconstruction failure (0.740 vs 0.021 normal baseline). Trader is operating outside trading hours." },
+          { time: "00:00.105", agent: "ForensicHunterAgent", stage: "DECIDE", text: "Exclusive write lock on core_ledger_positions.db and tampering with risk_limits_var.conf confirmed. Estimated unhedged exposure: $8.5M." },
+          { time: "00:00.165", agent: "AutonomousResponseAgent", stage: "ACT", text: "Trading account suspended (88ms), Bloomberg/FIX API session keys terminated, database transaction rolled back from immutable shadow copy." }
+        ]
+      },
+      {
+        id: "ALT-2026-FIN-07319",
+        title: "SWIFT Gateway Privilege Abuse & Audit Trail Wiping",
+        user_id: "USR_IT_01",
+        name: "Devon Reed",
+        role: "Lead Database Administrator",
+        department: "Core IT & Infrastructure",
+        terminal: "SRV-SWIFT-GW-01 (IP: 10.14.0.12)",
+        hr: "⚠️ Disciplinary Action Flag: Active Performance Improvement Plan",
+        severity: "P1_CRITICAL (91.0/100)",
+        latency: "189.4 ms",
+        zscore: "+12.8σ",
+        recon_loss: "0.485 MSE",
+        exposure: "$12,400,000",
+        honeypot: "TRIPWIRE TRIGGERED (WireGatewayKeys_BAK)",
+        mitre: ["T1070.001 Clear Event Logs", "T1078.002 Domain Accounts", "T1068 Privilege Escalation"],
+        ooda: [
+          { time: "00:00.018", agent: "AlertTriageAgent", stage: "OBSERVE", text: "Direct root access detected on SWIFT wire payment gateway server outside maintenance window." },
+          { time: "00:00.061", agent: "BehavioralProfilerAgent", stage: "ORIENT", text: "Employee under formal disciplinary review. Truncation command issued against db_transaction_audit.log." },
+          { time: "00:00.114", agent: "ForensicHunterAgent", stage: "DECIDE", text: "Attacker attempting anti-forensics trail erasure. SWIFT CSP 2.1 mandatory immediate session eviction condition met." },
+          { time: "00:00.189", agent: "AutonomousResponseAgent", stage: "ACT", text: "Root SSH session dropped, PAM credential rotation executed, immutable WORM audit logs promoted, CISO emergency alert dispatched." }
+        ]
+      },
+      {
+        id: "ALT-2026-FIN-06621",
+        title: "High-Net-Worth Portfolio Cloud Staging & Poaching",
+        user_id: "USR_WLT_03",
+        name: "Sophia Chen",
+        role: "Vice President",
+        department: "Wealth Management",
+        terminal: "PC-WLT-VP03 (IP: 10.14.3.44)",
+        hr: "⚠️ Competitor Meeting Flag: Pre-employment background query",
+        severity: "P2_HIGH (88.5/100)",
+        latency: "210.1 ms",
+        zscore: "+11.5σ",
+        recon_loss: "0.395 MSE",
+        exposure: "$5,200,000",
+        honeypot: "ACTIVE TOUCH (VIP_HNW_Account_Keys.csv)",
+        mitre: ["T1567.002 Exfiltration to Cloud Storage", "T1005 Data from Local System"],
+        ooda: [
+          { time: "00:00.020", agent: "AlertTriageAgent", stage: "OBSERVE", text: "Encrypted HTTPS multipart upload of 850 MB to external unapproved file locker detected." },
+          { time: "00:00.070", agent: "BehavioralProfilerAgent", stage: "ORIENT", text: "42 High-Net-Worth private client summaries harvested within 15 minutes. Normal daily export: 0 MB." },
+          { time: "00:00.128", agent: "ActiveDeceptionAgent", stage: "DECIDE", text: "Embedded watermarked canary tokens detected in outbound payload. Target competitor firm identified." },
+          { time: "00:00.210", agent: "AutonomousResponseAgent", stage: "ACT", text: "Web proxy connection terminated mid-transfer, DLP token invalidated, Legal Hold lock placed on workstation." }
+        ]
+      }
+    ];
+
+    function playCyberAlarmSound() {
+      if (!alertAudioEnabled) return;
+      try {
+        if (!audioCtx) {
+          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        if (audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+        
+        // Synthesize futuristic two-tone cyber alert chime
+        const now = audioCtx.currentTime;
+        const osc1 = audioCtx.createOscillator();
+        const osc2 = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+
+        osc1.type = "sine";
+        osc1.frequency.setValueAtTime(880, now);
+        osc1.frequency.exponentialRampToValueAtTime(440, now + 0.15);
+        osc1.frequency.setValueAtTime(880, now + 0.20);
+        osc1.frequency.exponentialRampToValueAtTime(440, now + 0.35);
+
+        osc2.type = "triangle";
+        osc2.frequency.setValueAtTime(659.25, now);
+        osc2.frequency.setValueAtTime(587.33, now + 0.20);
+
+        gain.gain.setValueAtTime(0.25, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.45);
+
+        osc1.connect(gain);
+        osc2.connect(gain);
+        gain.connect(audioCtx.destination);
+
+        osc1.start(now);
+        osc2.start(now);
+        osc1.stop(now + 0.45);
+        osc2.stop(now + 0.45);
+      } catch (e) {
+        console.warn("Audio Context init suppressed:", e);
+      }
+    }
+
+    function toggleAlertAudio() {
+      alertAudioEnabled = !alertAudioEnabled;
+      document.getElementById("alertAudioIcon").innerText = alertAudioEnabled ? "🔊" : "🔇";
+      document.getElementById("alertAudioStatus").innerText = alertAudioEnabled ? "Siren ON" : "Siren OFF";
+      showToast(alertAudioEnabled ? "Alert sound enabled" : "Alert sound muted");
+    }
+
+    function triggerLiveAlertModal(scenarioIdx = 0) {
+      currentLiveAlertScenario = scenarioIdx;
+      document.getElementById("liveAlertModal").classList.remove("hidden");
+      playCyberAlarmSound();
+      renderLiveAlertScenario(scenarioIdx);
+      switchAlertViewTab('hud');
+    }
+
+    function closeLiveAlertModal() {
+      document.getElementById("liveAlertModal").classList.add("hidden");
+    }
+
+    function switchLiveAlertScenario(idx) {
+      currentLiveAlertScenario = idx;
+      playCyberAlarmSound();
+      renderLiveAlertScenario(idx);
+    }
+
+    function renderLiveAlertScenario(idx) {
+      const scen = LIVE_ALERT_SCENARIOS[idx];
+
+      // Update Scenario Button styles
+      [0, 1, 2, 3].forEach(i => {
+        const btn = document.getElementById("scenBtn" + i);
+        if (i === idx) {
+          btn.className = "alert-scen-btn px-2.5 py-1.5 rounded bg-rose-950/80 border border-rose-500/80 text-rose-200 font-medium text-left truncate transition";
+        } else {
+          btn.className = "alert-scen-btn px-2.5 py-1.5 rounded bg-slate-950 border border-slate-800 text-slate-400 hover:text-slate-200 font-medium text-left truncate transition";
+        }
+      });
+
+      // Update Metrics
+      document.getElementById("alertSeverityBadge").innerText = scen.severity;
+      document.getElementById("alertMetricLatency").innerText = scen.latency;
+      document.getElementById("alertMetricZScore").innerText = scen.zscore;
+      document.getElementById("alertMetricLoss").innerText = scen.recon_loss;
+      document.getElementById("alertMetricExposure").innerText = scen.exposure;
+
+      // Update Actor Profile
+      document.getElementById("alertTargetName").innerText = scen.name;
+      document.getElementById("alertTargetId").innerText = "(" + scen.user_id + ")";
+      document.getElementById("alertTargetRoleDept").innerText = scen.role + " • " + scen.department;
+      document.getElementById("alertTargetTerminal").innerText = "Terminal: " + scen.terminal;
+      document.getElementById("alertTargetHr").innerText = scen.hr;
+      document.getElementById("alertHoneypotStatus").innerText = scen.honeypot;
+
+      // Update MITRE badges
+      const mitreContainer = document.getElementById("alertMitreBadges");
+      mitreContainer.innerHTML = scen.mitre.map(m => 
+        `<span class="px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 border border-rose-500/30 font-mono text-[11px]">${m}</span>`
+      ).join("");
+
+      // Update OODA transcript
+      const oodaContainer = document.getElementById("alertOodaTranscript");
+      oodaContainer.innerHTML = scen.ooda.map(step => `
+        <div class="p-2 rounded bg-slate-950 border border-slate-800/80">
+          <div class="flex items-center space-x-2 text-[10px] text-slate-400">
+            <span class="text-rose-400 font-bold">[${step.time}]</span>
+            <span class="px-1.5 py-0.2 rounded bg-cyan-950 text-cyan-300 font-bold">${step.stage}</span>
+            <span class="text-slate-300 font-bold">${step.agent}</span>
+          </div>
+          <div class="text-[11px] text-slate-300 mt-1 pl-1 border-l-2 border-rose-500/50">${step.text}</div>
+        </div>
+      `).join("");
+
+      // Generate SIEM JSON
+      const siemPayload = {
+        alert_id: scen.id,
+        timestamp: new Date().toISOString(),
+        engine: "Autonomous-UEBA-DeepSequence-v2.4",
+        detection_latency_ms: parseFloat(scen.latency),
+        threat_severity: scen.severity.split(" ")[0],
+        actor: {
+          user_id: scen.user_id,
+          name: scen.name,
+          role: scen.role,
+          department: scen.department,
+          workstation: scen.terminal
+        },
+        telemetry: {
+          composite_risk_score: parseFloat(scen.severity.match(/\(([0-9.]+)/)[1]),
+          statistical_drift_z: scen.zscore,
+          autoencoder_recon_loss_mse: parseFloat(scen.recon_loss),
+          financial_exposure_usd: scen.exposure,
+          deception_trap_interaction: scen.honeypot
+        },
+        mitre_attack: scen.mitre,
+        closed_loop_actions: [
+          { action: "REVOKE_KERBEROS_TGT", status: "EXECUTED", latency_ms: 142 },
+          { action: "ISOLATE_HOST_FIREWALL", status: "EXECUTED", latency_ms: 310 },
+          { action: "FREEZE_LEDGER_TRANSACTIONS", status: "EXECUTED", latency_ms: 205 },
+          { action: "COMPILE_FINCEN_SAR_PACKAGE", status: "READY", latency_ms: 680 }
+        ]
+      };
+      document.getElementById("alertSiemCodeBlock").innerText = JSON.stringify(siemPayload, null, 2);
+
+      // Generate FinCEN SAR Narrative
+      const sarText = 
+`========================================================================================
+UNITED STATES DEPARTMENT OF THE TREASURY
+FINANCIAL CRIMES ENFORCEMENT NETWORK (FinCEN) — FORM 111 (SAR)
+ELECTRONIC COMPLIANCE FILING NARRATIVE [31 CFR § 1020.320]
+========================================================================================
+FILING INSTITUTION:    MERIDIAN BANK & TRUST (FDIC #49102)
+INCIDENT REFERENCE:    ${scen.id}
+DATE / TIME STAMP:     ${new Date().toUTCString()}
+THREAT CLASSIFICATION: UNAUTHORIZED INTRUSION & INSIDER THREAT (GLBA § 501b / SOX § 404)
+
+PART I — SUBJECT INFORMATION:
+1. Legal Name:         ${scen.name}
+2. Identifier (User):  ${scen.user_id}
+3. Organizational Role: ${scen.role}
+4. Operating Unit:     ${scen.department}
+5. Assigned Host:      ${scen.terminal}
+6. HR Risk Flag:       ${scen.hr}
+
+PART II — SUSPICIOUS ACTIVITY & FORENSIC CHRONOLOGY:
+On observation date ${new Date().toISOString().split("T")[0]}, the automated User and Entity Behavior
+Analytics (UEBA) engine isolated statistically anomalous operational patterns associated
+with user account ${scen.user_id}.
+
+Quantitative forensic telemetry recorded a directional positive standard score deviation
+of ${scen.zscore} against established departmental peer baselines. Concurrently, the 5-day
+sliding sequence autoencoder yielded a reconstruction Mean Squared Error of ${scen.recon_loss},
+significantly exceeding the normal operational baseline (0.021 ± 0.007 MSE).
+
+Adversarial intent was conclusively confirmed via dynamic active deception honeypot:
+${scen.honeypot}.
+
+Estimated potential financial exposure and legal liability is valued at ${scen.exposure}.
+
+PART III — CLOSED-LOOP AUTONOMOUS CONTAINMENT ACTIONS:
+In accordance with zero-trust cyber defense governance policies, the autonomous multi-agent
+framework enacted the following machine-speed containment controls:
+  1. Active Directory Kerberos Token Invalidation (142 ms)
+  2. Endpoint Network Microsegmentation Isolation (310 ms)
+  3. Relational Database Gateway Write Freeze (205 ms)
+  4. Immutable Log Preservation & Compliance Package Compilation (680 ms)
+
+Total containment elapsed time: 1,337 ms (~1.34 seconds).
+Report electronically compiled and dispatched for authorized Chief Compliance Officer review.
+========================================================================================`;
+      document.getElementById("alertSarCodeBlock").innerText = sarText;
+    }
+
+    function switchAlertViewTab(tab) {
+      document.getElementById("alertContentHud").classList.toggle("hidden", tab !== 'hud');
+      document.getElementById("alertContentSiem").classList.toggle("hidden", tab !== 'siem');
+      document.getElementById("alertContentSar").classList.toggle("hidden", tab !== 'sar');
+
+      document.getElementById("alertTabHudBtn").className = tab === 'hud'
+        ? "px-3 py-1.5 rounded-lg bg-rose-600 text-white font-bold flex items-center space-x-1.5 transition"
+        : "px-3 py-1.5 rounded-lg text-slate-400 hover:text-slate-200 font-bold flex items-center space-x-1.5 transition";
+
+      document.getElementById("alertTabSiemBtn").className = tab === 'siem'
+        ? "px-3 py-1.5 rounded-lg bg-cyan-700 text-white font-bold flex items-center space-x-1.5 transition"
+        : "px-3 py-1.5 rounded-lg text-slate-400 hover:text-slate-200 font-bold flex items-center space-x-1.5 transition";
+
+      document.getElementById("alertTabSarBtn").className = tab === 'sar'
+        ? "px-3 py-1.5 rounded-lg bg-emerald-700 text-white font-bold flex items-center space-x-1.5 transition"
+        : "px-3 py-1.5 rounded-lg text-slate-400 hover:text-slate-200 font-bold flex items-center space-x-1.5 transition";
+    }
+
+    function copyAlertSiemJson() {
+      const code = document.getElementById("alertSiemCodeBlock").innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        showToast("✓ SIEM JSON copied to clipboard!");
+      }).catch(() => {
+        showToast("✓ SIEM JSON ready in console");
+      });
+    }
+
+    function downloadAlertFinCenSar() {
+      const text = document.getElementById("alertSarCodeBlock").innerText;
+      const scen = LIVE_ALERT_SCENARIOS[currentLiveAlertScenario];
+      const blob = new Blob([text], { type: "text/plain;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `FinCEN_SAR_${scen.id}_${scen.user_id}.txt`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast("✓ Downloaded FinCEN Form 111 SAR!");
+    }
+
+    function executeInstantQuarantine() {
+      const btn = document.getElementById("alertQuarantineBtn");
+      btn.innerHTML = `<span>⏳ Enforcing Zero-Trust Lockdown...</span>`;
+      btn.className = "px-4 py-2 bg-amber-600 text-white rounded-lg text-xs font-bold transition flex items-center space-x-1.5";
+      
+      playCyberAlarmSound();
+
+      setTimeout(() => {
+        btn.innerHTML = `<span>✓ MACHINE QUARANTINED (100%)</span>`;
+        btn.className = "px-4 py-2 bg-emerald-600 text-white rounded-lg text-xs font-bold transition flex items-center space-x-1.5";
+        showToast("🛡️ Zero-Trust Quarantine Enforced across all endpoints!");
+      }, 700);
+    }
+
+  </script>
+</body>
+</html>

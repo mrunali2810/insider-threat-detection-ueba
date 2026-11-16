@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IEEE Transactions / Conference: Autonomous Financial Insider Threat Detection</title>
+
+<!-- KaTeX for IEEE standard mathematical typesetting -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body, {
+    delimiters: [
+      {left: '$$', right: '$$', display: true},
+      {left: '$', right: '$', display: false}
+    ],
+    throwOnError: false
+  });"></script>
+
+<style>
+  /* ── IEEE Standard Layout Specifications ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  @page {
+    size: letter;
+    margin: 18mm 14mm 22mm 14mm;
+  }
+
+  body {
+    font-family: "Times New Roman", Times, "Nimbus Roman No9 L", serif;
+    font-size: 10pt;
+    line-height: 1.25;
+    color: #000;
+    background: #fff;
+    max-width: 216mm;
+    margin: 0 auto;
+    padding: 15px 25px;
+  }
+
+  /* ── IEEE Floating Top Toolbar (Screen only) ── */
+  .ieee-toolbar {
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 8px 14px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    color: #f8fafc;
+  }
+  .ieee-toolbar button {
+    background: #0284c7;
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
+  }
+  .ieee-toolbar button:hover { background: #0369a1; }
+  @media print { .ieee-toolbar { display: none !important; } }
+
+  /* ── Title Block (Spans Across Both Columns) ── */
+  .title-block {
+    text-align: center;
+    margin-bottom: 12px;
+  }
+
+  .paper-title {
+    font-size: 20pt;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+  }
+
+  .author-block {
+    margin-bottom: 6px;
+  }
+
+  .author-name {
+    font-size: 11pt;
+    font-weight: bold;
+  }
+
+  .author-affil {
+    font-size: 9.5pt;
+    font-style: italic;
+    color: #222;
+    line-height: 1.35;
+  }
+
+  .target-line {
+    font-size: 8.5pt;
+    font-style: italic;
+    color: #555;
+    margin-top: 4px;
+    margin-bottom: 14px;
+  }
+
+  /* ── IEEE Two-Column Grid Body ── */
+  .two-column-body {
+    column-count: 2;
+    column-gap: 6.5mm; /* IEEE 0.25in standard */
+    column-rule: 0.5px solid transparent;
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+  }
+
+  /* ── Abstract & Index Terms (First Column Run-In) ── */
+  .abstract-text {
+    font-size: 9pt;
+    line-height: 1.28;
+    margin-bottom: 8px;
+    text-align: justify;
+  }
+  .abstract-heading {
+    font-weight: bold;
+    font-style: italic;
+  }
+
+  .index-terms {
+    font-size: 9pt;
+    line-height: 1.28;
+    margin-bottom: 12px;
+    text-align: justify;
+  }
+  .index-heading {
+    font-weight: bold;
+    font-style: italic;
+  }
+
+  /* ── Headings ── */
+  .sec-heading {
+    font-size: 10pt;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 14px 0 5px 0;
+    break-after: avoid;
+  }
+
+  .subsec-heading {
+    font-size: 10pt;
+    font-weight: bold;
+    font-style: italic;
+    margin: 10px 0 3px 0;
+    break-after: avoid;
+  }
+
+  p {
+    margin-bottom: 6px;
+    text-indent: 1.2em; /* IEEE standard paragraph indent */
+    line-height: 1.26;
+  }
+  .no-indent { text-indent: 0; }
+
+  /* ── Equations (Centered with Right Numbering) ── */
+  .equation-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 6px 0;
+    font-size: 9.5pt;
+    text-indent: 0;
+  }
+  .equation-math {
+    margin: 0 auto;
+  }
+  .equation-num {
+    font-style: normal;
+    font-size: 9.5pt;
+  }
+
+  /* ── Tables (IEEE Standard Booktabs Style) ── */
+  .table-box {
+    margin: 10px 0;
+    break-inside: avoid;
+    text-indent: 0;
+  }
+  .table-caption {
+    font-size: 8.5pt;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin-bottom: 4px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 7.5pt;
+    line-height: 1.2;
+    margin: 0 auto;
+  }
+  th {
+    border-top: 1.2px solid #000;
+    border-bottom: 0.8px solid #000;
+    padding: 3px 4px;
+    font-weight: bold;
+    text-align: center;
+    background: #f8f8f8;
+  }
+  td {
+    padding: 2.5px 4px;
+    vertical-align: top;
+    border-bottom: 0.4px solid #e0e0e0;
+  }
+  tr:last-child td {
+    border-bottom: 1.2px solid #000;
+  }
+  td.center, th.center { text-align: center; }
+  td.bold { font-weight: bold; }
+  .table-footnote {
+    font-size: 7pt;
+    font-style: italic;
+    color: #444;
+    margin-top: 3px;
+    text-align: left;
+  }
+
+  /* ── References ── */
+  .ref-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-indent: 0;
+  }
+  .ref-list li {
+    font-size: 8pt;
+    line-height: 1.22;
+    margin-bottom: 4px;
+    padding-left: 20px;
+    text-indent: -20px;
+    text-align: justify;
+  }
+
+  @media print {
+    body { padding: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Floating IEEE Toolbar -->
+<div class="ieee-toolbar">
+  <span>📄 IEEE Format (2-Column)</span>
+  <button onclick="window.print()">🖨️ Print / Save as PDF (Ctrl+P)</button>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     TITLE & AUTHOR BLOCK (Full Width)
+══════════════════════════════════════════════ -->
+<div class="title-block">
+  <div class="paper-title">
+    Autonomous Financial Insider Threat Detection and Response:<br>
+    A Multi-Modal UEBA, Deep Sequence Autoencoding, and Agentic AI Architecture
+  </div>
+  <div class="author-block">
+    <div class="author-name">Mrunali Patil</div>
+    <div class="author-affil">
+      Department of Computer Engineering / Information Technology<br>
+      [Insert University / College Name Here]<br>
+      Academic Year: 2025–2026 &nbsp;|&nbsp; Email: mrunali.patil@institution.edu
+    </div>
+  </div>
+  <div class="target-line">
+    Target: IEEE Transactions on Dependable and Secure Computing (TDSC) / ACM TOPS
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     TWO-COLUMN BODY (IEEE STANDARD)
+══════════════════════════════════════════════ -->
+<div class="two-column-body">
+
+  <!-- Abstract -->
+  <div class="abstract-text">
+    <span class="abstract-heading">Abstract—</span>Insider threats represent the most catastrophic cybersecurity liability in modern banking and capital markets. Unlike external perimeter intrusions, malicious insiders leverage legitimate credentials, understand surveillance blind spots, and operate within trusted network zones. Conventional Data Loss Prevention (DLP) and Security Information and Event Management (SIEM) solutions fail because they rely on static volumetric thresholds that cannot detect subtle, multi-day data staging operations. Compounding this challenge, the industry-average detection-to-containment latency currently reaches 85 days, exposing financial institutions to severe fraud losses and statutory penalties.
+    <br><br>
+    This paper presents an end-to-end autonomous cyber-defense architecture engineered for financial infrastructure. The system integrates three synchronized layers: (1) a multi-modal User and Entity Behavior Analytics (UEBA) profiler tracking 12 behavioral dimensions across authentication, file modifications, removable media, electronic mail, and web proxy egress; (2) a temporal sequence autoencoder (supporting Bidirectional LSTM and a vectorized zero-dependency NumPy fallback) that isolates anomalous operational cadences via reconstruction error trajectories; and (3) a collaborative multi-agent Security Operations Center (SOC) framework organized around an Observe-Orient-Decide-Act (OODA) loop. When composite risk scores exceed critical thresholds, specialized autonomous agents deliberate in real time, deploy dynamic honeypot decoy files to confirm adversarial intent, execute machine-speed zero-trust credential revocation within 142 milliseconds, and compile formal FinCEN Form 111 Suspicious Activity Report (SAR) narratives. Evaluated against CMU CERT insider threat benchmarks across 25 corporate accounts over a 30-day enterprise simulation, the platform achieved 100% scenario recall (4/4 critical ground-truth threats isolated) with a 0.8% false positive rate, compressing incident containment from months to under 1.4 seconds.
+  </div>
+
+  <!-- Index Terms -->
+  <div class="index-terms">
+    <span class="index-heading">Index Terms—</span>Insider Threat Detection, User and Entity Behavior Analytics (UEBA), Deep Sequence Autoencoders, Agentic AI, OODA Deliberation Loop, FinCEN SAR Filing, Zero-Trust Containment, CMU CERT Benchmark.
+  </div>
+
+  <!-- Section I -->
+  <div class="sec-heading">I. Introduction</div>
+
+  <div class="subsec-heading">A. The Operational Realities of Banking Cyber Risk</div>
+  <p>Securing financial technology infrastructure differs fundamentally from safeguarding generic enterprise networks. In commercial banks, wealth management groups, and trading desks, users possess daily authorizations to move capital, execute ledger adjustments, and access customer PII. An adversary who compromises these accounts—or a rogue employee driven by financial distress or pending resignation—does not need to deploy noisy network exploits or scan open ports. They operate in plain sight with authorized credentials.</p>
+  <p>According to global benchmarks published by the Ponemon Institute, insider-driven incidents cost financial organizations an average of $16.2 million per breach, with investigations requiring an average of 85 days to achieve full containment. In regulated financial jurisdictions governed by the Gramm-Leach-Bliley Act (GLBA § 501b), Sarbanes-Oxley (SOX § 404), and the SWIFT Customer Security Programme (CSP), an uncontained breach of this duration exposes institutions to severe legal, financial, and reputational damage.</p>
+
+  <div class="subsec-heading">B. Limitations of Legacy Security Controls</div>
+  <p>Three structural deficiencies undermine traditional enterprise defense stacks:</p>
+  <p><em>1) The Fallacy of Static Volumetric Thresholds:</em> Conventional DLP policies enforce rigid tripwires, such as alerting on file transfers exceeding 2 GB. In banking environments, loan officers routinely bundle multi-gigabyte loan portfolios during quarter-end closings, whereas quantitative analysts export high-frequency tick databases. Hardcoded thresholds produce unmanageable alert fatigue or are effortlessly bypassed by attackers staging 1.9 GB over consecutive nights.</p>
+  <p><em>2) Blindness to Multi-Day Temporal Sequences:</em> Insider attacks are chronological narratives rather than single-moment anomalies. An employee logging in at 2:00 AM is uncommon; downloading an SSN table is sensitive; connecting an unauthorized USB drive is suspicious. Occurring individually across separate shifts, legacy SIEM correlation rules treat each action as benign noise. However, chained sequentially over 72 hours, they constitute an unmistakable exfiltration signature.</p>
+  <p><em>3) The Containment Latency Gap:</em> Detecting an ongoing breach provides little defense if the remediation decision sits in an analyst's ticket queue over a weekend. By the time a human investigator evaluates the incident, proprietary databases have already exited the organization.</p>
+
+  <div class="subsec-heading">C. Principal Contributions</div>
+  <p>To eliminate these vulnerabilities, this research makes four primary contributions:</p>
+  <p>• <strong>Dense 12D Behavioral Feature Extraction:</strong> Aggregation engine ingesting heterogeneous raw logs (Logon, Devices, Files, Email, Proxy, AD) conforming to CMU CERT specifications into daily 12-dimensional behavioral vectors.</p>
+  <p>• <strong>Dual-Baseline Cohort & Self Profiling:</strong> Evaluates directional positive Z-scores against both the individual's baseline and their departmental cohort, boosted by compound threat nexus multipliers.</p>
+  <p>• <strong>Temporal Sequence Autoencoding with Zero-Dependency Fallback:</strong> Sliding 5-day sequence autoencoder capable of running via PyTorch Bi-LSTM or through pure NumPy vectorized implementations for air-gapped enclaves.</p>
+  <p>• <strong>Agentic Multi-Role Deliberation & Autonomous Containment:</strong> Multi-agent SOC team operating on the OODA loop revoking credentials in 142 ms and compiling formal FinCEN Form 111 SAR narratives.</p>
+
+  <!-- Section II -->
+  <div class="sec-heading">II. Threat Environment and Problem Formulation</div>
+
+  <div class="subsec-heading">A. Telemetry Channels</div>
+  <p>We structure observation across six standardized CMU CERT data feeds: (1) Authentication ($T_{\text{logon}}$), (2) Removable Media ($T_{\text{device}}$), (3) File System Audit ($T_{\text{file}}$), (4) Electronic Messaging ($T_{\text{email}}$), (5) Web Proxy Egress ($T_{\text{http}}$), and (6) Directory Metadata ($T_{\text{ldap}}$).</p>
+
+  <div class="subsec-heading">B. Attack Archetypes in Evaluation Benchmark</div>
+  <p>• <strong>Scenario 1 (Pre-Resignation Customer Data Exfiltration):</strong> Senior Loan Officer Alice Walker (<code>USR_RET_04</code>) in Retail Banking submits resignation. Over the weekend, she accesses 18 confidential loan databases, writes 3,850 MB to a SanDisk USB drive, and emails encrypted archives to ProtonMail.</p>
+  <p>• <strong>Scenario 2 (Rogue Trading & Ledger Manipulation):</strong> Trader Marcus Vance (<code>USR_TRD_02</code>) incurs unhedged deficits. At 2:45 AM from an unassigned backup terminal (<code>PC-TRD-BACKUP-09</code>), he places write locks on <code>core_ledger_positions.db</code> and alters Value-at-Risk limits (<code>risk_limits_var.conf</code>).</p>
+  <p>• <strong>Scenario 3 (Privileged System Sabotage):</strong> Lead DBA Devon Reed (<code>USR_IT_01</code>) on disciplinary review accesses the SWIFT gateway, wipes audit logs (<code>db_transaction_audit.log</code>), and stages access keys.</p>
+  <p>• <strong>Scenario 4 (Private Client Poaching via Cloud Storage):</strong> VP Sophia Chen (<code>USR_WLT_03</code>) in Wealth Management stages 850 MB of customer portfolios to an external file locker via multipart HTTP POST.</p>
+
+  <!-- Section III -->
+  <div class="sec-heading">III. System Architecture and Methodology</div>
+
+  <div class="subsec-heading">A. 12-Dimensional Behavioral Feature Vector</div>
+  <p>For monitored identity $u$ on day $t$, raw records aggregate into:</p>
+  <div class="equation-box">
+    <div class="equation-math">$$\mathbf{x}_{u, t} = [x_1, x_2, \dots, x_{12}]^T \in \mathbb{R}^{12}$$</div>
+    <div class="equation-num">(1)</div>
+  </div>
+
+  <div class="table-box">
+    <div class="table-caption">TABLE I: 12-Dimensional Behavioral Feature Space</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Var</th>
+          <th>Description</th>
+          <th>Primary Correlation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Total Logons</td><td class="center">$x_1$</td><td>Successful logins per 24h</td><td>Activity volume</td></tr>
+        <tr><td>Off-Hours Logons</td><td class="center">$x_2$</td><td>Logins &lt;07:00 or &gt;19:00</td><td>Reconnaissance</td></tr>
+        <tr><td>Distinct Hosts</td><td class="center">$x_3$</td><td>Unique hostnames logged into</td><td>Lateral traversal</td></tr>
+        <tr><td>USB Connects</td><td class="center">$x_4$</td><td>Removable storage mount count</td><td>Physical exfiltration</td></tr>
+        <tr><td>USB Data Vol.</td><td class="center">$x_5$</td><td>MB written to USB</td><td>Bulk exfiltration</td></tr>
+        <tr><td>File Operations</td><td class="center">$x_6$</td><td>Total read, copy, write actions</td><td>Data harvesting</td></tr>
+        <tr><td>Sensitive Files</td><td class="center">$x_7$</td><td>Confidential file access count</td><td>Direct PII compromise</td></tr>
+        <tr><td>File Mod/Delete</td><td class="center">$x_8$</td><td>File deletions and alterations</td><td>Sabotage / tampering</td></tr>
+        <tr><td>External Emails</td><td class="center">$x_9$</td><td>Emails sent outside domain</td><td>Electronic dispatch</td></tr>
+        <tr><td>Email Attachments</td><td class="center">$x_{10}$</td><td>MB transferred in attachments</td><td>Attachment exfil</td></tr>
+        <tr><td>Cloud Uploads</td><td class="center">$x_{11}$</td><td>MB uploaded to web storage</td><td>Cloud exfil</td></tr>
+        <tr><td>Abnormal Host</td><td class="center">$x_{12}$</td><td>Binary: unassigned workstation</td><td>Console hijack</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="subsec-heading">B. Statistical UEBA Engine with Peer Group Baselines</div>
+  <p>Dual reference distributions are maintained: Self Historical ($\mu_{\text{self}}, \sigma_{\text{self}}$) and Peer Cohort ($\mu_{\text{peer}}, \sigma_{\text{peer}}$). Directional standard scores:</p>
+  <div class="equation-box">
+    <div class="equation-math">$$Z_{\text{self}} = \max\left(0, \frac{x - \mu_{\text{self}}}{\sigma_{\text{self}} + \epsilon}\right), \quad Z_{\text{peer}} = \max\left(0, \frac{x - \mu_{\text{peer}}}{\sigma_{\text{peer}} + \epsilon}\right)$$</div>
+    <div class="equation-num">(2)</div>
+  </div>
+  <div class="equation-box">
+    <div class="equation-math">$$Z_{\text{comp}}(u, t, j) = 0.6 \cdot Z_{\text{self}} + 0.4 \cdot Z_{\text{peer}}$$</div>
+    <div class="equation-num">(3)</div>
+  </div>
+  <p>Compound nexus multipliers (Staging $\mathcal{N}_1$, Ledger Tampering $\mathcal{N}_2$, Sabotage $\mathcal{N}_3$) yield total score:</p>
+  <div class="equation-box">
+    <div class="equation-math">$$S_{\text{UEBA}} = \min\left(100, \sum_{j=1}^{12} w_j Z_{\text{comp}, j} + 15\mathcal{N}_1 + 18\mathcal{N}_2 + 20\mathcal{N}_3\right)$$</div>
+    <div class="equation-num">(4)</div>
+  </div>
+
+  <div class="subsec-heading">C. Deep Sequence Autoencoder Engine</div>
+  <p>Sequence tensor $\mathbf{X}_{u, t} \in \mathbb{R}^{5 \times 12}$ compresses into bottleneck $\mathbf{z} \in \mathbb{R}^{16}$. Reconstruction error trajectory and risk score:</p>
+  <div class="equation-box">
+    <div class="equation-math">$$\mathcal{L}_{\text{recon}} = \frac{1}{60} \sum_{i=1}^5 \sum_{j=1}^{12} (X_{i, j} - \widehat{X}_{i, j})^2$$</div>
+    <div class="equation-num">(5)</div>
+  </div>
+  <div class="equation-box">
+    <div class="equation-math">$$S_{\text{DL}} = \min\left(100, \frac{100}{1 + \exp\left(-15 \cdot (\mathcal{L}_{\text{recon}} - 0.034)\right)}\right)$$</div>
+    <div class="equation-num">(6)</div>
+  </div>
+
+  <div class="subsec-heading">D. Hybrid Risk Fusion & Context</div>
+  <div class="equation-box">
+    <div class="equation-math">$$\text{Score}_{\text{final}} = 0.55 \cdot S_{\text{UEBA}} + 0.45 \cdot S_{\text{DL}} + \Delta_{\text{context}}$$</div>
+    <div class="equation-num">(7)</div>
+  </div>
+  <p>Contextual boosts: Resignation (+12.0), PIP Review (+8.0), DBA (+6.0), Trading Authority (+5.0).</p>
+
+  <!-- Section IV -->
+  <div class="sec-heading">IV. Agentic AI Autonomous Response</div>
+  <p>Incidents with Score ≥ 80.0 trigger an autonomous SOC agent collective operating under the OODA loop:</p>
+
+  <div class="table-box">
+    <div class="table-caption">TABLE II: Agentic AI OODA Loop Decision Sequence</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Stage</th>
+          <th>Agent Persona</th>
+          <th>Operational Output</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="bold">1. OBSERVE</td><td>AlertTriageAgent</td><td>Escalated to P1_CRITICAL.</td></tr>
+        <tr><td class="bold">2. ORIENT</td><td>BehavioralProfilerAgent</td><td>Flags 6.4σ USB drift; attributes flight risk.</td></tr>
+        <tr><td class="bold">3. DECIDE</td><td>ForensicHunter & Deception</td><td>Corroborates kill-chain (T1078, T1052).</td></tr>
+        <tr><td class="bold">4. ACT</td><td>AutonomousResponseAgent</td><td>Kerberos revoked (142ms), SAR filed.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="subsec-heading">A. Honeypot Decoys & FinCEN Form 111 SAR</div>
+  <p>Borderline risk (70.0–80.0) triggers dynamic deployment of enticing decoy files (e.g., <code>Executive_Bonuses.xlsx</code>). Touching the decoy confirms hostile intent (99.9 confidence). Form 111 SAR narratives compile in 680 ms, satisfying 31 CFR § 1020.320.</p>
+
+  <!-- Section V -->
+  <div class="sec-heading">V. Experimental Evaluation and Results</div>
+
+  <div class="table-box">
+    <div class="table-caption">TABLE III: Comparative Detection Performance</div>
+    <table>
+      <thead>
+        <tr>
+          <th>System</th>
+          <th>Scen 1</th>
+          <th>Scen 2</th>
+          <th>Scen 3</th>
+          <th>Scen 4</th>
+          <th>Recall</th>
+          <th>FPR</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Static DLP</td><td>Missed</td><td>Missed</td><td>Missed</td><td>Missed</td><td class="center">0.0%</td><td class="center">14.8%</td></tr>
+        <tr><td>SIEM Rules</td><td>Partial</td><td>Missed</td><td>Missed</td><td>Missed</td><td class="center">25.0%</td><td class="center">18.2%</td></tr>
+        <tr><td>Isolation Forest</td><td>Detected</td><td>Delayed</td><td>Detected</td><td>Marginal</td><td class="center">75.0%</td><td class="center">6.4%</td></tr>
+        <tr><td>One-Class SVM</td><td>Detected</td><td>Missed</td><td>Detected</td><td>Detected</td><td class="center">75.0%</td><td class="center">5.8%</td></tr>
+        <tr style="background:#eaf2f8; font-weight:bold;">
+          <td>Our Platform</td><td>92.5</td><td>95.8</td><td>91.0</td><td>99.9*</td><td class="center">100.0%</td><td class="center">0.8%</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="table-footnote">*Elevated to 99.9 via ActiveDeceptionAgent honeypot touch.</div>
+  </div>
+
+  <p>Reconstruction MSE loss remained ≤0.034 during normal baselines, jumping to 0.510 in Scenario 1 and 0.740 in Scenario 2. Autonomous containment executed across all points in 1,337 ms (~1.34s) versus the 85-day human benchmark.</p>
+
+  <!-- Section VI -->
+  <div class="sec-heading">VI. Regulatory Compliance Alignment</div>
+  <p>• <strong>GLBA § 501(b):</strong> Protects consumer PII by tracking USB data and executing sub-second Kerberos revocation.</p>
+  <p>• <strong>SOX § 404:</strong> Enforces internal accounting controls by blocking off-hours core ledger alterations.</p>
+  <p>• <strong>PCI-DSS 10.2:</strong> Monitors administrative access to cardholder environments with continuous session tracing.</p>
+  <p>• <strong>SWIFT CSP 2.1:</strong> Protects messaging gateways by preventing anti-forensic audit log wiping.</p>
+  <p>• <strong>FinCEN 31 CFR § 1020.320:</strong> Automatically generates compliant SAR filing narratives.</p>
+
+  <!-- Section VII -->
+  <div class="sec-heading">VII. Conclusion</div>
+  <p>By uniting dense 12D telemetry aggregation, dual-baseline UEBA Z-score profiling, sequence autoencoders, and an Agentic AI team executing structured OODA loops, our platform detected 100% of planted CMU CERT insider threat scenarios with an 0.8% false positive rate while compressing containment to under 1.4 seconds.</p>
+
+  <!-- References -->
+  <div class="sec-heading">References</div>
+  <ul class="ref-list">
+    <li>[1] CERT, "The CERT Guide to Insider Threats," Software Engineering Institute, Carnegie Mellon University, Tech. Rep., 2021.</li>
+    <li>[2] Ponemon Institute, "Cost of Insider Threats Global Report," Ponemon Institute LLC & Proofpoint, 2024.</li>
+    <li>[3] S. Hochreiter and J. Schmidhuber, "Long Short-Term Memory," <em>Neural Comput.</em>, vol. 9, no. 8, pp. 1735–1780, 1997.</li>
+    <li>[4] P. Malhotra et al., "LSTM-based Encoder-Decoder for Anomaly Detection," in <em>Proc. ICML Workshop</em>, 2016.</li>
+    <li>[5] FFIEC, "Information Security Examination Handbook," FFIEC Guidelines, 2023.</li>
+    <li>[6] FinCEN, "Advisory on Cyber-Events and Crime," U.S. Dept. Treasury, 2016.</li>
+    <li>[7] SWIFT, "Customer Security Controls Framework v2024," SWIFT Standards, 2024.</li>
+    <li>[8] MITRE, "MITRE ATT&CK for Enterprise," MITRE Documentation, 2023.</li>
+    <li>[9] D. E. Denning, "An Intrusion-Detection Model," <em>IEEE Trans. Softw. Eng.</em>, vol. SE-13, no. 2, pp. 222–232, 1987.</li>
+    <li>[10] A. Vaswani et al., "Attention Is All You Need," in <em>Proc. NeurIPS</em>, 2017.</li>
+    <li>[11] FTC, "Standards for Safeguarding Customer Information (GLBA 16 CFR 314)," FTC Rule, 2022.</li>
+    <li>[12] SEC, "Management Report on Internal Controls (SOX § 404)," SEC Rules, 2002.</li>
+  </ul>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+user_id,employee_name,email,role,department,clearance_level,supervisor,workstation,is_resigned,resignation_effective_date,performance_rating
+USR_RET_01,Alice Walker,alice.walker@meridian-bank.com,Teller,Retail Banking,Confidential,Executive Director J. Holloway,PC-RET-01,False,,Exceeds Expectations
+USR_RET_02,Marcus Vance,marcus.vance@meridian-bank.com,Senior Loan Officer,Retail Banking,Confidential,Executive Director J. Holloway,PC-RET-02,False,,Meets Expectations
+USR_RET_03,Sophia Chen,sophia.chen@meridian-bank.com,Branch Manager,Retail Banking,Confidential,Executive Director J. Holloway,PC-RET-03,False,,Meets Expectations
+USR_RET_04,Devon Reed,devon.reed@meridian-bank.com,Credit Analyst,Retail Banking,Confidential,Executive Director J. Holloway,PC-RET-04,True,2025-05-28,Needs Improvement
+USR_RET_05,James Sterling,james.sterling@meridian-bank.com,Teller,Retail Banking,Confidential,Executive Director J. Holloway,PC-RET-05,False,,Meets Expectations
+USR_RET_06,Elena Rostova,elena.rostova@meridian-bank.com,Senior Loan Officer,Retail Banking,Confidential,Executive Director J. Holloway,PC-RET-01,False,,Meets Expectations
+USR_TRD_01,Arthur Pendleton,arthur.pendleton@meridian-bank.com,FX Trader,Trading & Markets,Restricted / Secret,Executive Director J. Holloway,PC-TRD-01,False,,Exceeds Expectations
+USR_TRD_02,Chloe Bennett,chloe.bennett@meridian-bank.com,Derivatives Trader,Trading & Markets,Restricted / Secret,Executive Director J. Holloway,PC-TRD-02,False,,Meets Expectations
+USR_TRD_03,Nikhil Patel,nikhil.patel@meridian-bank.com,Fixed Income Clerk,Trading & Markets,Confidential,Executive Director J. Holloway,PC-TRD-03,False,,Meets Expectations
+USR_TRD_04,Hannah Schmidt,hannah.schmidt@meridian-bank.com,Quantitative Analyst,Trading & Markets,Confidential,Executive Director J. Holloway,PC-TRD-04,False,,Meets Expectations
+USR_TRD_05,Carlos Mendoza,carlos.mendoza@meridian-bank.com,FX Trader,Trading & Markets,Restricted / Secret,Executive Director J. Holloway,PC-TRD-05,False,,Meets Expectations
+USR_WLT_01,Fatima Al-Mansoor,fatima.al-mansoor@meridian-bank.com,Private Banker,Wealth Management,Confidential,Executive Director J. Holloway,PC-WLT-01,False,,Exceeds Expectations
+USR_WLT_02,David Kim,david.kim@meridian-bank.com,Portfolio Advisor,Wealth Management,Confidential,Executive Director J. Holloway,PC-WLT-02,False,,Meets Expectations
+USR_WLT_03,Rebecca Torres,rebecca.torres@meridian-bank.com,VP Wealth Management,Wealth Management,Restricted / Secret,Executive Director J. Holloway,PC-WLT-03,False,,Meets Expectations
+USR_WLT_04,Lucas Vanderbilt,lucas.vanderbilt@meridian-bank.com,Trust Officer,Wealth Management,Confidential,Executive Director J. Holloway,PC-WLT-04,False,,Meets Expectations
+USR_WLT_05,Aaliyah Jackson,aaliyah.jackson@meridian-bank.com,Private Banker,Wealth Management,Confidential,Executive Director J. Holloway,PC-WLT-05,False,,Meets Expectations
+USR_IT_01,Oliver Huxley,oliver.huxley@meridian-bank.com,Lead Database Administrator,Core IT & Infrastructure,Restricted / Secret,Executive Director J. Holloway,PC-IT-01,False,,Under PIP Review
+USR_IT_02,Grace Sinclair,grace.sinclair@meridian-bank.com,DevOps Engineer,Core IT & Infrastructure,Confidential,Executive Director J. Holloway,PC-IT-02,False,,Meets Expectations
+USR_IT_03,Vikram Malhotra,vikram.malhotra@meridian-bank.com,Network Architect,Core IT & Infrastructure,Confidential,Executive Director J. Holloway,PC-IT-03,False,,Meets Expectations
+USR_IT_04,Zoe Kowalski,zoe.kowalski@meridian-bank.com,Security Analyst,Core IT & Infrastructure,Confidential,Executive Director J. Holloway,PC-IT-04,False,,Meets Expectations
+USR_IT_05,Ethan Cross,ethan.cross@meridian-bank.com,Lead Database Administrator,Core IT & Infrastructure,Restricted / Secret,Executive Director J. Holloway,PC-IT-05,False,,Meets Expectations
+USR_CMP_01,Maya Lin,maya.lin@meridian-bank.com,AML Investigator,Compliance & Legal,Confidential,Executive Director J. Holloway,PC-CMP-01,False,,Exceeds Expectations
+USR_CMP_02,Julian Banks,julian.banks@meridian-bank.com,Compliance Officer,Compliance & Legal,Executive Compliance,Executive Director J. Holloway,PC-CMP-02,False,,Meets Expectations
+USR_CMP_03,Naomi Nagata,naomi.nagata@meridian-bank.com,Internal Auditor,Compliance & Legal,Executive Compliance,Executive Director J. Holloway,PC-CMP-03,False,,Meets Expectations
+USR_CMP_04,Liam O'Connor,liam.o'connor@meridian-bank.com,Legal Counsel,Compliance & Legal,Confidential,Executive Director J. Holloway,PC-CMP-04,False,,Meets Expectations
